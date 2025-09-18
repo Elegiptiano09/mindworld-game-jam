@@ -53,38 +53,39 @@ class AssetManager {
     loadImages() {
         const imagesToLoad = {
             // Personaggi
-            'player': 'assets/images/player.png',
-            'npc_elian': 'assets/images/npc_elian.png',
-            'npc_vex': 'assets/images/npc_vex.png',
-            'npc_grim': 'assets/images/npc_grim.png',
-            'npc_nyx': 'assets/images/npc_nyx.png',
-            'npc_aquos': 'assets/images/npc_aquos.png',
-            'npc_ember': 'assets/images/npc_ember.png',
-            'npc_frost': 'assets/images/npc_frost.png',
-            'npc_celeste': 'assets/images/npc_celeste.png',
+            'player': 'assets/images/characters/player.jpg',
+            'npc_elian': 'assets/images/characters/npc_elian.png',
+            'npc_vex': 'assets/images/characters/npc_vex.png',
+            'npc_grim': 'assets/images/characters/npc_grim.png',
+            'npc_nyx': 'assets/images/characters/npc_nyx.gif',
+            'npc_aquos': 'assets/images/characters/npc_aquos.gif',
+            'npc_ember': 'assets/images/characters/TVGX18pFJQQY.gif',
+            'npc_frost': 'assets/images/characters/qr4N8oqEUp26.gif',
+            'npc_celeste': 'assets/images/characters/I26UI1ummFGA.jpg',
             
             // Creature
-            'fah_creature': 'assets/images/fah_creature.png',
-            'brih_creature': 'assets/images/brih_creature.png',
+            'fah_creature': 'assets/images/characters/fah_creature.jpg',
+            'brih_creature': 'assets/images/characters/brih_creature.gif',
             
             // Ambienti
-            'bg_village': 'assets/images/bg_village.png',
-            'bg_city': 'assets/images/bg_city.png',
-            'bg_tower': 'assets/images/bg_tower.png',
+            'bg_village': 'assets/images/tiles/bg_village.jpg',
+            'bg_city': 'assets/images/tiles/bg_city.webp',
+            'bg_tower': 'assets/images/tiles/bg_village.jpg',
             
             // Tiles
-            'tiles_village': 'assets/images/tiles_village.png',
-            'tiles_city': 'assets/images/tiles_city.png',
+            'tiles_village': 'assets/images/tiles/tiles_village.gif',
+            'tiles_city': 'assets/images/tiles/tiles_city.webp',
             
             // Effetti
-            'effect_fire': 'assets/images/effect_fire.png',
-            'effect_water': 'assets/images/effect_water.png',
-            'effect_combined': 'assets/images/effect_combined.png',
+            'effect_fire': 'assets/images/effects/effect_fire.jpg',
+            'effect_water': 'assets/images/effects/effect_water.png',
+            'effect_combined': 'assets/images/effects/effect_combined.jpg',
             
             // UI
-            'ui_dialog': 'assets/images/ui_dialog.png',
-            'ui_icons': 'assets/images/ui_icons.png',
-            'ui_logo': 'assets/images/ui_logo.png'
+            'ui_dialog': 'assets/images/ui/ui_dialog.webp',
+            'ui_icons': 'assets/images/ui/ui_icons.jpg',
+            'ui_health': 'assets/images/ui/ui_health.gif',
+            'ui_logo': 'assets/images/ui/ui_logo.jpg'
         };
         
         // Conta il numero di immagini da caricare
