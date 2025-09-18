@@ -1,0 +1,116 @@
+{
+  "elian": {
+    "rootNode": {
+      "character": "elian",
+      "text": "Aurora! Finalmente sei qui. È passato un anno da quando il villaggio si è sollevato, lasciando tuo fratello Leo e gli altri quaggiù.",
+      "choices": [
+        {
+          "text": "Maestro Elian, cosa è successo esattamente un anno fa?",
+          "nextNode": {
+            "character": "elian",
+            "text": "La Dama Celeste, colei che governa questa città, ha usato un'antica tecnologia per separare il villaggio dalla terra. Sosteneva che la gente del villaggio avrebbe portato disordine e caos.",
+            "choices": [
+              {
+                "text": "Dov'è mio fratello Leo ora?",
+                "nextNode": {
+                  "character": "elian",
+                  "text": "Leo e gli altri hanno combattuto contro la Dama Celeste per un anno intero. Sono in uno stallo. L'ultima volta che l'ho visto, era diretto verso la Torre dell'Acqua, dove si trova il Protettore Aquos.",
+                  "choices": [
+                    {
+                      "text": "Come posso raggiungere la Torre dell'Acqua?",
+                      "nextNode": {
+                        "character": "elian",
+                        "text": "Prima dovrai attraversare la città. Ma fai attenzione, è piena di creature Fah e Brih. Alcuni sono amichevoli, altri no. Dovrai imparare a usare la tecnologia magica di questo luogo per difenderti.",
+                        "choices": [
+                          {
+                            "text": "Insegnami a usare questa tecnologia magica.",
+                            "nextNode": {
+                              "character": "elian",
+                              "text": "Prendi questo bracciale. Ti permetterà di canalizzare l'energia Fah (rossa) e Brih (blu) per creare attacchi magici. Premi i tasti numerici da 1 a 4 per gli attacchi Fah, e da 5 a 8 per gli attacchi Brih.",
+                              "choices": [
+                                {
+                                  "text": "Grazie, Maestro Elian. Partirò subito per la Torre dell'Acqua.",
+                                  "nextNode": {
+                                    "character": "elian",
+                                    "text": "Buona fortuna, Aurora. Ricorda, la verità su ciò che è accaduto un anno fa potrebbe non essere quella che credi. Mantieni la mente aperta.",
+                                    "choices": [
+                                      {
+                                        "text": "Arrivederci.",
+                                        "nextNode": null
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "nyx": {
+    "rootNode": {
+      "character": "nyx",
+      "text": "Benvenuta al mio negozio, straniera. Non vedo facce nuove da molto tempo. Sono Nyx, commercio in armi e moduli magici.",
+      "choices": [
+        {
+          "text": "Cosa sono i moduli magici?",
+          "nextNode": {
+            "character": "nyx",
+            "text": "I moduli magici si attaccano al tuo bracciale e potenziano i tuoi attacchi elementali. Alcuni aumentano il danno, altri aggiungono effetti speciali come bruciature o congelamento.",
+            "choices": [
+              {
+                "text": "Hai visto un ragazzo di nome Leo? È mio fratello.",
+                "nextNode": {
+                  "character": "nyx",
+                  "text": "Leo? Sì, è passato di qui qualche settimana fa. Cercava un modulo speciale per combinare energie Fah e Brih. Sembrava determinato a raggiungere la Dama Celeste.",
+                  "choices": [
+                    {
+                      "text": "Sai dove posso trovarlo ora?",
+                      "nextNode": {
+                        "character": "nyx",
+                        "text": "Si dirigeva verso la Torre dell'Acqua. Ma prima di andare lì, dovresti parlare con Vex. Conduce un quiz televisivo chiamato 'Il Tetto Semi Sconosciuto'. Sa tutto di tutti in questa città.",
+                        "choices": [
+                          {
+                            "text": "Dove posso trovare Vex?",
+                            "nextNode": {
+                              "character": "nyx",
+                              "text": "Nel grande edificio con l'antenna al centro della città. Non puoi sbagliare. Ma ti avverto, non aiuta mai nessuno gratuitamente. Vorrà qualcosa in cambio.",
+                              "choices": [
+                                {
+                                  "text": "Grazie per l'informazione. Posso vedere cosa hai in vendita?",
+                                  "nextNode": {
+                                    "character": "nyx",
+                                    "text": "Certo! Ecco cosa ho disponibile oggi.",
+                                    "choices": [
+                                      {
+                                        "text": "Forse tornerò più tardi.",
+                                        "nextNode": null
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

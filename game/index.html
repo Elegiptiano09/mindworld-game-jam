@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindworld: Un'Avventura tra Due Mondi</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui-overlay">
+            <div id="health-bar">
+                <div class="bar-label">Salute</div>
+                <div class="bar-container">
+                    <div id="health-fill" class="bar-fill"></div>
+                </div>
+            </div>
+            <div id="energy-container">
+                <div id="fah-energy">
+                    <div class="bar-label">Energia Fah</div>
+                    <div class="bar-container">
+                        <div id="fah-fill" class="bar-fill red"></div>
+                    </div>
+                </div>
+                <div id="brih-energy">
+                    <div class="bar-label">Energia Brih</div>
+                    <div class="bar-container">
+                        <div id="brih-fill" class="bar-fill blue"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="dialog-box" class="hidden">
+                <div id="dialog-character"></div>
+                <div id="dialog-text"></div>
+                <div id="dialog-choices"></div>
+            </div>
+        </div>
+        <div id="loading-screen">
+            <div class="loading-content">
+                <h1>Mindworld</h1>
+                <p>Un'Avventura tra Due Mondi</p>
+                <div class="loading-bar-container">
+                    <div id="loading-bar"></div>
+                </div>
+                <p id="loading-text">Caricamento...</p>
+            </div>
+        </div>
+        <div id="start-screen" class="hidden">
+            <div class="start-content">
+                <h1>Mindworld</h1>
+                <p>Un'Avventura tra Due Mondi</p>
+                <button id="start-button">Inizia Avventura</button>
+                <button id="controls-button">Controlli</button>
+            </div>
+        </div>
+        <div id="controls-screen" class="hidden">
+            <div class="controls-content">
+                <h2>Controlli</h2>
+                <ul>
+                    <li><strong>W, A, S, D</strong> - Movimento</li>
+                    <li><strong>Spazio</strong> - Salto</li>
+                    <li><strong>E</strong> - Interagisci</li>
+                    <li><strong>1, 2, 3, 4</strong> - Attacchi Fah (Rossi)</li>
+                    <li><strong>5, 6, 7, 8</strong> - Attacchi Brih (Blu)</li>
+                    <li><strong>Q</strong> - Cambia arma</li>
+                    <li><strong>ESC</strong> - Pausa</li>
+                </ul>
+                <button id="back-button">Indietro</button>
+            </div>
+        </div>
+        <div id="pause-screen" class="hidden">
+            <div class="pause-content">
+                <h2>Pausa</h2>
+                <button id="resume-button">Riprendi</button>
+                <button id="menu-button">Menu Principale</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/assets.js"></script>
+    <script src="js/character.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/combat.js"></script>
+    <script src="js/world.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
