@@ -1,0 +1,214 @@
+{
+  "attacks": {
+    "fah": [
+      {
+        "id": "fah_fireball",
+        "name": "Palla di Fuoco",
+        "description": "Una sfera di fuoco che infligge danni da bruciatura.",
+        "type": "fah",
+        "damage": 20,
+        "range": 200,
+        "cooldown": 1.5,
+        "energyCost": 15,
+        "effectSprite": "effect_fire",
+        "statusEffect": {
+          "type": "burn",
+          "damage": 5,
+          "duration": 3
+        },
+        "soundEffect": "sfx_attack_fah",
+        "particleColor": "#e74c3c",
+        "particleCount": 20,
+        "keyBinding": "1"
+      },
+      {
+        "id": "fah_flame_wave",
+        "name": "Onda di Fiamme",
+        "description": "Un'onda di fiamme che colpisce tutti i nemici in un'area.",
+        "type": "fah",
+        "damage": 15,
+        "range": 150,
+        "cooldown": 3.0,
+        "energyCost": 25,
+        "effectSprite": "effect_fire",
+        "statusEffect": {
+          "type": "burn",
+          "damage": 3,
+          "duration": 5
+        },
+        "soundEffect": "sfx_attack_fah",
+        "particleColor": "#e74c3c",
+        "particleCount": 30,
+        "keyBinding": "2"
+      },
+      {
+        "id": "fah_meteor",
+        "name": "Meteora",
+        "description": "Una potente meteora che causa danni ingenti in un punto.",
+        "type": "fah",
+        "damage": 40,
+        "range": 300,
+        "cooldown": 5.0,
+        "energyCost": 40,
+        "effectSprite": "effect_fire",
+        "statusEffect": {
+          "type": "burn",
+          "damage": 8,
+          "duration": 4
+        },
+        "soundEffect": "sfx_attack_fah",
+        "particleColor": "#e74c3c",
+        "particleCount": 50,
+        "keyBinding": "3"
+      },
+      {
+        "id": "fah_fire_shield",
+        "name": "Scudo di Fuoco",
+        "description": "Uno scudo di fiamme che protegge dai danni e brucia i nemici a contatto.",
+        "type": "fah",
+        "damage": 10,
+        "range": 100,
+        "cooldown": 8.0,
+        "energyCost": 30,
+        "effectSprite": "effect_fire",
+        "statusEffect": {
+          "type": "burn",
+          "damage": 10,
+          "duration": 2
+        },
+        "soundEffect": "sfx_attack_fah",
+        "particleColor": "#e74c3c",
+        "particleCount": 40,
+        "keyBinding": "4"
+      }
+    ],
+    "brih": [
+      {
+        "id": "brih_ice_spike",
+        "name": "Spuntone di Ghiaccio",
+        "description": "Uno spuntone di ghiaccio che infligge danni da congelamento.",
+        "type": "brih",
+        "damage": 25,
+        "range": 250,
+        "cooldown": 2.0,
+        "energyCost": 20,
+        "effectSprite": "effect_water",
+        "statusEffect": {
+          "type": "freeze",
+          "slowFactor": 0.5,
+          "duration": 3
+        },
+        "soundEffect": "sfx_attack_brih",
+        "particleColor": "#3498db",
+        "particleCount": 15,
+        "keyBinding": "5"
+      },
+      {
+        "id": "brih_frost_nova",
+        "name": "Nova di Gelo",
+        "description": "Un'esplosione di gelo che rallenta tutti i nemici nell'area.",
+        "type": "brih",
+        "damage": 15,
+        "range": 180,
+        "cooldown": 4.0,
+        "energyCost": 30,
+        "effectSprite": "effect_water",
+        "statusEffect": {
+          "type": "freeze",
+          "slowFactor": 0.3,
+          "duration": 6
+        },
+        "soundEffect": "sfx_attack_brih",
+        "particleColor": "#3498db",
+        "particleCount": 35,
+        "keyBinding": "6"
+      },
+      {
+        "id": "brih_blizzard",
+        "name": "Tormenta",
+        "description": "Una potente tormenta che causa danni continui in un'area.",
+        "type": "brih",
+        "damage": 5,
+        "range": 200,
+        "cooldown": 6.0,
+        "energyCost": 35,
+        "effectSprite": "effect_water",
+        "statusEffect": {
+          "type": "freeze",
+          "slowFactor": 0.7,
+          "duration": 4
+        },
+        "soundEffect": "sfx_attack_brih",
+        "particleColor": "#3498db",
+        "particleCount": 60,
+        "keyBinding": "7"
+      },
+      {
+        "id": "brih_ice_armor",
+        "name": "Armatura di Ghiaccio",
+        "description": "Un'armatura di ghiaccio che riduce i danni subiti.",
+        "type": "brih",
+        "damage": 0,
+        "range": 0,
+        "cooldown": 10.0,
+        "energyCost": 25,
+        "effectSprite": "effect_water",
+        "statusEffect": {
+          "type": "armor",
+          "damageReduction": 0.5,
+          "duration": 8
+        },
+        "soundEffect": "sfx_attack_brih",
+        "particleColor": "#3498db",
+        "particleCount": 30,
+        "keyBinding": "8"
+      }
+    ],
+    "combined": [
+      {
+        "id": "combined_elemental_burst",
+        "name": "Esplosione Elementale",
+        "description": "Una potente esplosione che combina le energie Fah e Brih.",
+        "type": "combined",
+        "damage": 50,
+        "range": 250,
+        "cooldown": 8.0,
+        "energyCost": 60,
+        "effectSprite": "effect_combined",
+        "statusEffect": {
+          "type": "elemental",
+          "damage": 10,
+          "slowFactor": 0.5,
+          "duration": 5
+        },
+        "soundEffect": "sfx_attack_combined",
+        "particleColor": "#9b59b6",
+        "particleCount": 80,
+        "keyBinding": "Q"
+      },
+      {
+        "id": "combined_harmony",
+        "name": "Armonia Elementale",
+        "description": "Ripristina salute ed energia bilanciando le energie Fah e Brih.",
+        "type": "combined",
+        "damage": 0,
+        "healing": 40,
+        "energyRestore": 50,
+        "range": 0,
+        "cooldown": 15.0,
+        "energyCost": 30,
+        "effectSprite": "effect_combined",
+        "statusEffect": {
+          "type": "regeneration",
+          "healing": 5,
+          "energyRestore": 5,
+          "duration": 5
+        },
+        "soundEffect": "sfx_attack_combined",
+        "particleColor": "#9b59b6",
+        "particleCount": 50,
+        "keyBinding": "E"
+      }
+    ]
+  }
+}

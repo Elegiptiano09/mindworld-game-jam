@@ -1,0 +1,408 @@
+{
+  "levels": [
+    {
+      "id": "village_floating",
+      "name": "Villaggio Fluttuante",
+      "description": "Il villaggio natale di Aurora, ora sospeso nel cielo.",
+      "type": "village",
+      "background": "bg_village",
+      "tileset": "tiles_village",
+      "music": "music_village",
+      "width": 50,
+      "height": 30,
+      "startX": 25,
+      "startY": 15,
+      "connections": [
+        {
+          "levelId": "descent_path",
+          "x": 25,
+          "y": 29,
+          "targetX": 25,
+          "targetY": 1
+        }
+      ],
+      "npcs": [
+        {
+          "id": "elder",
+          "name": "Anziano del Villaggio",
+          "type": "npc",
+          "sprite": "npc_elian",
+          "x": 28,
+          "y": 15,
+          "dialogueId": "elder_intro"
+        },
+        {
+          "id": "villager1",
+          "name": "Abitante del Villaggio",
+          "type": "npc",
+          "sprite": "npc_elian",
+          "x": 22,
+          "y": 18,
+          "dialogueId": "villager_worried"
+        }
+      ],
+      "objects": [
+        {
+          "id": "chest1",
+          "type": "chest",
+          "x": 30,
+          "y": 12,
+          "contents": [
+            {
+              "type": "item",
+              "id": "health_potion",
+              "quantity": 2
+            }
+          ]
+        }
+      ],
+      "enemies": []
+    },
+    {
+      "id": "descent_path",
+      "name": "Sentiero di Discesa",
+      "description": "Il pericoloso sentiero che collega il villaggio fluttuante alla città sottostante.",
+      "type": "path",
+      "background": "bg_village",
+      "tileset": "tiles_village",
+      "music": "music_village",
+      "width": 50,
+      "height": 100,
+      "startX": 25,
+      "startY": 1,
+      "connections": [
+        {
+          "levelId": "village_floating",
+          "x": 25,
+          "y": 1,
+          "targetX": 25,
+          "targetY": 29
+        },
+        {
+          "levelId": "colorful_city",
+          "x": 25,
+          "y": 99,
+          "targetX": 25,
+          "targetY": 1
+        }
+      ],
+      "npcs": [],
+      "objects": [
+        {
+          "id": "chest2",
+          "type": "chest",
+          "x": 35,
+          "y": 50,
+          "contents": [
+            {
+              "type": "item",
+              "id": "fah_crystal",
+              "quantity": 1
+            }
+          ]
+        }
+      ],
+      "enemies": [
+        {
+          "id": "fah_creature1",
+          "name": "Creatura Fah",
+          "type": "fah",
+          "sprite": "fah_creature",
+          "x": 20,
+          "y": 30,
+          "health": 50,
+          "damage": 10,
+          "attackType": "fah"
+        },
+        {
+          "id": "fah_creature2",
+          "name": "Creatura Fah",
+          "type": "fah",
+          "sprite": "fah_creature",
+          "x": 30,
+          "y": 60,
+          "health": 50,
+          "damage": 10,
+          "attackType": "fah"
+        }
+      ]
+    },
+    {
+      "id": "colorful_city",
+      "name": "Città Colorata",
+      "description": "La città misteriosa apparsa sotto il villaggio fluttuante, piena di creature Fah e Brih.",
+      "type": "city",
+      "background": "bg_city",
+      "tileset": "tiles_city",
+      "music": "music_city",
+      "width": 100,
+      "height": 100,
+      "startX": 25,
+      "startY": 1,
+      "connections": [
+        {
+          "levelId": "descent_path",
+          "x": 25,
+          "y": 1,
+          "targetX": 25,
+          "targetY": 99
+        },
+        {
+          "levelId": "tv_studio",
+          "x": 50,
+          "y": 50,
+          "targetX": 25,
+          "targetY": 25
+        },
+        {
+          "levelId": "water_tower",
+          "x": 80,
+          "y": 80,
+          "targetX": 10,
+          "targetY": 10
+        }
+      ],
+      "npcs": [
+        {
+          "id": "nyx",
+          "name": "Nyx",
+          "type": "npc",
+          "sprite": "npc_nyx",
+          "x": 40,
+          "y": 40,
+          "dialogueId": "nyx_shop"
+        },
+        {
+          "id": "ember",
+          "name": "Ember",
+          "type": "npc",
+          "sprite": "npc_ember",
+          "x": 60,
+          "y": 30,
+          "dialogueId": "ember_intro"
+        },
+        {
+          "id": "frost",
+          "name": "Frost",
+          "type": "npc",
+          "sprite": "npc_frost",
+          "x": 62,
+          "y": 30,
+          "dialogueId": "frost_intro"
+        }
+      ],
+      "objects": [
+        {
+          "id": "chest3",
+          "type": "chest",
+          "x": 70,
+          "y": 20,
+          "contents": [
+            {
+              "type": "item",
+              "id": "brih_crystal",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "save_point1",
+          "type": "save_point",
+          "x": 25,
+          "y": 5
+        }
+      ],
+      "enemies": [
+        {
+          "id": "fah_creature3",
+          "name": "Creatura Fah",
+          "type": "fah",
+          "sprite": "fah_creature",
+          "x": 30,
+          "y": 20,
+          "health": 60,
+          "damage": 15,
+          "attackType": "fah"
+        },
+        {
+          "id": "brih_creature1",
+          "name": "Creatura Brih",
+          "type": "brih",
+          "sprite": "brih_creature",
+          "x": 60,
+          "y": 60,
+          "health": 50,
+          "damage": 20,
+          "attackType": "brih"
+        }
+      ]
+    },
+    {
+      "id": "tv_studio",
+      "name": "Studio Televisivo",
+      "description": "Lo studio dove Vex conduce il quiz 'Il Tetto Semi Sconosciuto' insieme a Grim.",
+      "type": "indoor",
+      "background": "bg_city",
+      "tileset": "tiles_city",
+      "music": "music_city",
+      "width": 50,
+      "height": 50,
+      "startX": 25,
+      "startY": 25,
+      "connections": [
+        {
+          "levelId": "colorful_city",
+          "x": 25,
+          "y": 25,
+          "targetX": 50,
+          "targetY": 50
+        }
+      ],
+      "npcs": [
+        {
+          "id": "vex",
+          "name": "Vex",
+          "type": "npc",
+          "sprite": "npc_vex",
+          "x": 25,
+          "y": 15,
+          "dialogueId": "vex_quiz"
+        },
+        {
+          "id": "grim",
+          "name": "Grim",
+          "type": "npc",
+          "sprite": "npc_grim",
+          "x": 30,
+          "y": 15,
+          "dialogueId": "grim_intro"
+        }
+      ],
+      "objects": [],
+      "enemies": []
+    },
+    {
+      "id": "water_tower",
+      "name": "Torre dell'Acqua",
+      "description": "La torre dove risiede il Protettore Aquos, che garantisce l'acqua potabile alla città.",
+      "type": "tower",
+      "background": "bg_city",
+      "tileset": "tiles_city",
+      "music": "music_boss",
+      "width": 30,
+      "height": 100,
+      "startX": 10,
+      "startY": 10,
+      "connections": [
+        {
+          "levelId": "colorful_city",
+          "x": 10,
+          "y": 10,
+          "targetX": 80,
+          "targetY": 80
+        },
+        {
+          "levelId": "celeste_chamber",
+          "x": 15,
+          "y": 90,
+          "targetX": 25,
+          "targetY": 10
+        }
+      ],
+      "npcs": [
+        {
+          "id": "aquos",
+          "name": "Protettore Aquos",
+          "type": "npc",
+          "sprite": "npc_aquos",
+          "x": 15,
+          "y": 80,
+          "dialogueId": "aquos_challenge"
+        },
+        {
+          "id": "leo",
+          "name": "Leo",
+          "type": "npc",
+          "sprite": "npc_elian",
+          "x": 15,
+          "y": 85,
+          "dialogueId": "leo_reunion"
+        }
+      ],
+      "objects": [
+        {
+          "id": "save_point2",
+          "type": "save_point",
+          "x": 15,
+          "y": 20
+        }
+      ],
+      "enemies": [
+        {
+          "id": "brih_creature2",
+          "name": "Creatura Brih",
+          "type": "brih",
+          "sprite": "brih_creature",
+          "x": 15,
+          "y": 40,
+          "health": 70,
+          "damage": 25,
+          "attackType": "brih"
+        },
+        {
+          "id": "brih_creature3",
+          "name": "Creatura Brih",
+          "type": "brih",
+          "sprite": "brih_creature",
+          "x": 15,
+          "y": 60,
+          "health": 70,
+          "damage": 25,
+          "attackType": "brih"
+        }
+      ]
+    },
+    {
+      "id": "celeste_chamber",
+      "name": "Camera della Dama Celeste",
+      "description": "La stanza dove risiede la Dama Celeste, colei che ha fondato la città e sollevato il villaggio.",
+      "type": "boss",
+      "background": "bg_city",
+      "tileset": "tiles_city",
+      "music": "music_boss",
+      "width": 50,
+      "height": 50,
+      "startX": 25,
+      "startY": 10,
+      "connections": [
+        {
+          "levelId": "water_tower",
+          "x": 25,
+          "y": 10,
+          "targetX": 15,
+          "targetY": 90
+        }
+      ],
+      "npcs": [
+        {
+          "id": "celeste",
+          "name": "Dama Celeste",
+          "type": "npc",
+          "sprite": "npc_celeste",
+          "x": 25,
+          "y": 25,
+          "dialogueId": "celeste_confrontation"
+        }
+      ],
+      "objects": [
+        {
+          "id": "save_point3",
+          "type": "save_point",
+          "x": 25,
+          "y": 15
+        }
+      ],
+      "enemies": []
+    }
+  ]
+}

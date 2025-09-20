@@ -1,0 +1,295 @@
+{
+  "characters": {
+    "player": {
+      "id": "aurora",
+      "name": "Aurora",
+      "description": "La protagonista, una ragazza di 20 anni dal villaggio fluttuante, in cerca del fratello Leo.",
+      "type": "player",
+      "sprite": "player",
+      "stats": {
+        "health": 100,
+        "maxHealth": 100,
+        "energy": 100,
+        "maxEnergy": 100,
+        "speed": 5,
+        "strength": 10,
+        "defense": 5
+      },
+      "inventory": {
+        "maxSize": 20,
+        "items": [
+          {
+            "id": "health_potion",
+            "quantity": 3
+          }
+        ]
+      },
+      "equipment": {
+        "weapon": null,
+        "armor": null,
+        "accessory": null
+      },
+      "abilities": {
+        "fah": ["fah_fireball"],
+        "brih": ["brih_ice_spike"],
+        "combined": []
+      }
+    },
+    "npcs": [
+      {
+        "id": "elian",
+        "name": "Maestro Elian",
+        "description": "Un saggio anziano che guida Aurora all'inizio del suo viaggio.",
+        "type": "npc",
+        "sprite": "npc_elian",
+        "stats": {
+          "health": 80,
+          "maxHealth": 80,
+          "speed": 3
+        },
+        "dialogueId": "elian"
+      },
+      {
+        "id": "vex",
+        "name": "Vex",
+        "description": "Conduttore del quiz televisivo 'Il Tetto Semi Sconosciuto' e giornalista che sa tutto di tutti.",
+        "type": "npc",
+        "sprite": "npc_vex",
+        "stats": {
+          "health": 70,
+          "maxHealth": 70,
+          "speed": 4
+        },
+        "dialogueId": "vex"
+      },
+      {
+        "id": "grim",
+        "name": "Grim",
+        "description": "Co-conduttore del quiz televisivo, che Aurora deve far licenziare per ottenere informazioni da Vex.",
+        "type": "npc",
+        "sprite": "npc_grim",
+        "stats": {
+          "health": 90,
+          "maxHealth": 90,
+          "speed": 3
+        },
+        "dialogueId": "grim"
+      },
+      {
+        "id": "nyx",
+        "name": "Nyx",
+        "description": "Una mercante che vende armi magiche e moduli per potenziare gli attacchi elementali.",
+        "type": "npc",
+        "sprite": "npc_nyx",
+        "stats": {
+          "health": 60,
+          "maxHealth": 60,
+          "speed": 3
+        },
+        "dialogueId": "nyx"
+      },
+      {
+        "id": "aquos",
+        "name": "Protettore Aquos",
+        "description": "Il guardiano delle acque della città, che garantisce l'esistenza di acqua potabile.",
+        "type": "npc",
+        "sprite": "npc_aquos",
+        "stats": {
+          "health": 150,
+          "maxHealth": 150,
+          "speed": 4
+        },
+        "dialogueId": "aquos"
+      },
+      {
+        "id": "ember",
+        "name": "Ember",
+        "description": "Un Fah (rosso) che aiuta Aurora nel suo viaggio.",
+        "type": "npc",
+        "sprite": "npc_ember",
+        "stats": {
+          "health": 70,
+          "maxHealth": 70,
+          "speed": 6
+        },
+        "dialogueId": "ember"
+      },
+      {
+        "id": "frost",
+        "name": "Frost",
+        "description": "Un Brih (blu) che aiuta Aurora nel suo viaggio, fratello di Ember.",
+        "type": "npc",
+        "sprite": "npc_frost",
+        "stats": {
+          "health": 70,
+          "maxHealth": 70,
+          "speed": 6
+        },
+        "dialogueId": "frost"
+      },
+      {
+        "id": "leo",
+        "name": "Leo",
+        "description": "Il fratello di Aurora, rimasto intrappolato nello scontro contro la Dama Celeste.",
+        "type": "npc",
+        "sprite": "npc_elian",
+        "stats": {
+          "health": 100,
+          "maxHealth": 100,
+          "speed": 5
+        },
+        "dialogueId": "leo"
+      },
+      {
+        "id": "celeste",
+        "name": "Dama Celeste",
+        "description": "Colei che ha fondato la città e ha fatto sollevare il villaggio, antagonista principale.",
+        "type": "npc",
+        "sprite": "npc_celeste",
+        "stats": {
+          "health": 200,
+          "maxHealth": 200,
+          "speed": 4
+        },
+        "dialogueId": "celeste"
+      }
+    ],
+    "enemies": [
+      {
+        "id": "fah_minion",
+        "name": "Servitore Fah",
+        "description": "Una creatura Fah ostile che attacca con magia di fuoco.",
+        "type": "fah",
+        "sprite": "fah_creature",
+        "stats": {
+          "health": 50,
+          "maxHealth": 50,
+          "speed": 4,
+          "damage": 10,
+          "defense": 3
+        },
+        "attacks": ["fah_fireball"],
+        "dropTable": [
+          {
+            "id": "health_potion",
+            "chance": 0.3,
+            "quantity": 1
+          },
+          {
+            "id": "fah_crystal",
+            "chance": 0.1,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "brih_minion",
+        "name": "Servitore Brih",
+        "description": "Una creatura Brih ostile che attacca con magia di ghiaccio.",
+        "type": "brih",
+        "sprite": "brih_creature",
+        "stats": {
+          "health": 40,
+          "maxHealth": 40,
+          "speed": 5,
+          "damage": 15,
+          "defense": 2
+        },
+        "attacks": ["brih_ice_spike"],
+        "dropTable": [
+          {
+            "id": "health_potion",
+            "chance": 0.3,
+            "quantity": 1
+          },
+          {
+            "id": "brih_crystal",
+            "chance": 0.1,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "fah_elite",
+        "name": "Elite Fah",
+        "description": "Una potente creatura Fah con attacchi di fuoco avanzati.",
+        "type": "fah",
+        "sprite": "fah_creature",
+        "stats": {
+          "health": 100,
+          "maxHealth": 100,
+          "speed": 3,
+          "damage": 20,
+          "defense": 8
+        },
+        "attacks": ["fah_fireball", "fah_flame_wave"],
+        "dropTable": [
+          {
+            "id": "health_potion",
+            "chance": 0.5,
+            "quantity": 2
+          },
+          {
+            "id": "fah_crystal",
+            "chance": 0.3,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "brih_elite",
+        "name": "Elite Brih",
+        "description": "Una potente creatura Brih con attacchi di ghiaccio avanzati.",
+        "type": "brih",
+        "sprite": "brih_creature",
+        "stats": {
+          "health": 80,
+          "maxHealth": 80,
+          "speed": 4,
+          "damage": 25,
+          "defense": 5
+        },
+        "attacks": ["brih_ice_spike", "brih_frost_nova"],
+        "dropTable": [
+          {
+            "id": "health_potion",
+            "chance": 0.5,
+            "quantity": 2
+          },
+          {
+            "id": "brih_crystal",
+            "chance": 0.3,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "celeste_guardian",
+        "name": "Guardiano della Dama Celeste",
+        "description": "Un potente guardiano che protegge la Dama Celeste, in grado di usare sia magia Fah che Brih.",
+        "type": "combined",
+        "sprite": "npc_aquos",
+        "stats": {
+          "health": 150,
+          "maxHealth": 150,
+          "speed": 3,
+          "damage": 30,
+          "defense": 10
+        },
+        "attacks": ["fah_meteor", "brih_blizzard", "combined_elemental_burst"],
+        "dropTable": [
+          {
+            "id": "health_potion",
+            "chance": 1.0,
+            "quantity": 3
+          },
+          {
+            "id": "combined_crystal",
+            "chance": 0.5,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  }
+}
