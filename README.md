@@ -46,6 +46,31 @@ Durante la sua avventura, Aurora dovrà scoprire:
 - **Sistema di particelle** per effetti visivi
 - **Calcolo del danno** con resistenze e debolezze elementali
 
+### Sistema di Inventario
+- **Raccolta di oggetti** durante l'esplorazione
+- **Equipaggiamento** di armi, armature e accessori
+- **Consumabili** per ripristinare salute ed energia
+- **Oggetti chiave** per progredire nella storia
+- **Gestione dell'inventario** con categorie e filtri
+- **Sistema di crafting** per creare nuovi oggetti
+
+### Sistema di Missioni
+- **Missione principale** per salvare Leo
+- **Missioni secondarie** per aiutare gli abitanti della città
+- **Obiettivi multipli** per ogni missione
+- **Ricompense** in base alla difficoltà
+- **Dialoghi a scelta multipla** che influenzano la storia
+- **Registro delle missioni** per tenere traccia dei progressi
+
+### Interfaccia Utente Migliorata
+- **HUD dinamico** che mostra salute, energia e stato
+- **Minimappa** per l'orientamento
+- **Tracker delle missioni** sempre visibile
+- **Barra delle abilità** con cooldown
+- **Menu di pausa** con opzioni
+- **Sistema di notifiche** per eventi importanti
+- **Tooltip** per informazioni sugli oggetti
+
 ### Modalità Multiplayer
 - **Cooperativa**: Gioca con amici per esplorare il mondo e combattere nemici
 - **PvP opzionale**: Sfida altri giocatori in combattimenti elementali
@@ -66,6 +91,7 @@ Durante la sua avventura, Aurora dovrà scoprire:
 - **Esplorazione**: Scoperta di una città completamente trasformata e colorata
 - **Dialoghi e Missioni**: Interazioni con vari personaggi per ottenere informazioni e progredire nella storia
 - **Puzzle e Sfide**: Risolvere enigmi per avanzare, come il quiz televisivo "Il Tetto Semi Sconosciuto"
+- **Progressione del Personaggio**: Aumento di livello, sblocco di nuove abilità e miglioramento dell'equipaggiamento
 
 ## Struttura del Progetto
 
@@ -73,11 +99,18 @@ Durante la sua avventura, Aurora dovrà scoprire:
 mindworld-game-jam/
 ├── game/
 │   ├── assets/       # Risorse grafiche, audio e dati
-│   │   ├── data/     # File JSON per livelli, personaggi e attacchi
+│   │   ├── data/     # File JSON per livelli, personaggi, attacchi, oggetti e missioni
 │   │   ├── images/   # Sprite e immagini
 │   │   └── audio/    # Musica ed effetti sonori
 │   ├── css/          # Fogli di stile
 │   ├── js/           # Codice JavaScript
+│   │   ├── inventory.js      # Sistema di inventario
+│   │   ├── quest.js          # Sistema di missioni
+│   │   ├── combat_system.js  # Sistema di combattimento avanzato
+│   │   ├── level.js          # Sistema di livelli
+│   │   ├── multiplayer.js    # Sistema multiplayer
+│   │   └── ui.js             # Interfaccia utente migliorata
+│   ├── test.html     # File di test per le nuove funzionalità
 │   └── index.html    # File principale del gioco
 ├── src/
 │   ├── characters/   # Definizioni dei personaggi
@@ -96,13 +129,21 @@ mindworld-game-jam/
 1. Clona il repository: `git clone https://github.com/Elegiptiano09/mindworld-game-jam.git`
 2. Apri il file `game/index.html` in un browser web
 3. Usa WASD per muoverti, E per interagire
-4. Usa i tasti 1-4 per attacchi Fah, 5-8 per attacchi Brih, Q ed E per attacchi combinati
+4. Usa i tasti 1-4 per attacchi Fah, 5-8 per attacchi Brih
+5. Usa I per aprire l'inventario, Q per il registro delle missioni, M per la mappa
+6. Premi ESC per aprire il menu di pausa
+
+## Test delle Nuove Funzionalità
+Per testare le nuove funzionalità (inventario, missioni, interfaccia utente migliorata):
+1. Apri il file `game/test.html` in un browser web
+2. Segui le istruzioni sullo schermo per interagire con i vari elementi
+3. Esplora le diverse schermate e funzionalità
 
 ## Sviluppo Futuro
 - Implementazione completa di tutti i livelli
 - Aggiunta di più nemici e boss
-- Sistema di inventario e equipaggiamento
-- Missioni secondarie
+- Espansione del sistema di missioni
+- Miglioramento del sistema di crafting
 - Editor di livelli
 - Modalità storia completa
 
