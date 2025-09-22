@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindworld - Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #2c3e50;
+            font-family: Arial, sans-serif;
+            color: #ecf0f1;
+            overflow: hidden;
+        }
+        
+        #game-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #game-canvas {
+            background-color: #000;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        #loading-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #2c3e50;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        
+        #loading-bar-container {
+            width: 300px;
+            height: 20px;
+            background-color: #34495e;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        #loading-bar {
+            width: 0%;
+            height: 100%;
+            background-color: #3498db;
+            transition: width 0.3s ease;
+        }
+        
+        #loading-text {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        #start-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 90;
+        }
+        
+        #game-title {
+            font-size: 48px;
+            margin-bottom: 50px;
+            color: #f39c12;
+            text-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+        }
+        
+        .menu-button {
+            width: 200px;
+            height: 50px;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 18px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .menu-button:hover {
+            background-color: #2980b9;
+        }
+        
+        #controls-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 90;
+        }
+        
+        #controls-title {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #f39c12;
+        }
+        
+        .control-row {
+            display: flex;
+            justify-content: space-between;
+            width: 400px;
+            margin: 10px 0;
+        }
+        
+        .control-key {
+            background-color: #34495e;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        #pause-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 80;
+        }
+        
+        #pause-title {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #f39c12;
+        }
+        
+        #dialog-box {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            padding: 20px;
+            z-index: 70;
+        }
+        
+        #dialog-character {
+            color: #f39c12;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        #dialog-text {
+            color: #ecf0f1;
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        #dialog-choices {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .dialog-choice {
+            color: #3498db;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .dialog-choice:hover, .dialog-choice.selected {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        #status-bars {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 60;
+        }
+        
+        .status-bar {
+            width: 200px;
+            height: 20px;
+            background-color: #34495e;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        
+        .status-bar-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        
+        .status-bar-label {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        }
+        
+        #health-fill {
+            background-color: #e74c3c;
+            width: 100%;
+        }
+        
+        .energy-bars {
+            display: flex;
+            width: 200px;
+            height: 15px;
+            background-color: #34495e;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        
+        #fah-fill {
+            background-color: #e74c3c;
+            width: 50%;
+            height: 100%;
+        }
+        
+        #brih-fill {
+            background-color: #3498db;
+            width: 50%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas" width="800" height="600"></canvas>
+        
+        <div id="loading-screen">
+            <h1>Mindworld</h1>
+            <div id="loading-bar-container">
+                <div id="loading-bar"></div>
+            </div>
+            <div id="loading-text">Caricamento... 0%</div>
+        </div>
+        
+        <div id="start-screen" class="hidden">
+            <h1 id="game-title">Mindworld</h1>
+            <button id="start-button" class="menu-button">Inizia</button>
+            <button id="controls-button" class="menu-button">Controlli</button>
+        </div>
+        
+        <div id="controls-screen" class="hidden">
+            <h2 id="controls-title">Controlli</h2>
+            <div class="control-row">
+                <span>Movimento:</span>
+                <span class="control-key">W A S D</span>
+            </div>
+            <div class="control-row">
+                <span>Interagisci:</span>
+                <span class="control-key">E</span>
+            </div>
+            <div class="control-row">
+                <span>Attacchi Fah:</span>
+                <span class="control-key">1 2 3 4</span>
+            </div>
+            <div class="control-row">
+                <span>Attacchi Brih:</span>
+                <span class="control-key">5 6 7 8</span>
+            </div>
+            <div class="control-row">
+                <span>Inventario:</span>
+                <span class="control-key">I</span>
+            </div>
+            <div class="control-row">
+                <span>Missioni:</span>
+                <span class="control-key">Q</span>
+            </div>
+            <div class="control-row">
+                <span>Mappa:</span>
+                <span class="control-key">M</span>
+            </div>
+            <div class="control-row">
+                <span>Pausa:</span>
+                <span class="control-key">ESC</span>
+            </div>
+            <button id="back-button" class="menu-button" style="margin-top: 20px;">Indietro</button>
+        </div>
+        
+        <div id="pause-screen" class="hidden">
+            <h2 id="pause-title">Pausa</h2>
+            <button id="resume-button" class="menu-button">Riprendi</button>
+            <button id="menu-button" class="menu-button">Menu Principale</button>
+        </div>
+        
+        <div id="dialog-box" class="hidden">
+            <div id="dialog-character">Nome Personaggio</div>
+            <div id="dialog-text">Testo del dialogo...</div>
+            <div id="dialog-choices"></div>
+        </div>
+        
+        <div id="status-bars">
+            <div class="status-bar">
+                <div id="health-fill" class="status-bar-fill"></div>
+                <div class="status-bar-label">Salute: 100/100</div>
+            </div>
+            <div class="energy-bars">
+                <div id="fah-fill"></div>
+                <div id="brih-fill"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Carica gli script -->
+    <script src="js/utils.js"></script>
+    <script src="js/assets.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/character.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/world.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/inventory.js"></script>
+    <script src="js/quest.js"></script>
+    <script src="js/level.js"></script>
+    <script src="js/combat_system.js"></script>
+    <script src="js/multiplayer.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Script di test per verificare le nuove funzionalità
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simula il caricamento
+            const loadingBar = document.getElementById('loading-bar');
+            const loadingText = document.getElementById('loading-text');
+            let progress = 0;
+            
+            const loadingInterval = setInterval(function() {
+                progress += 0.01;
+                loadingBar.style.width = `${progress * 100}%`;
+                loadingText.textContent = `Caricamento... ${Math.floor(progress * 100)}%`;
+                
+                if (progress >= 1) {
+                    clearInterval(loadingInterval);
+                    document.getElementById('loading-screen').classList.add('hidden');
+                    document.getElementById('start-screen').classList.remove('hidden');
+                }
+            }, 50);
+            
+            // Gestisci i pulsanti del menu
+            document.getElementById('start-button').addEventListener('click', function() {
+                document.getElementById('start-screen').classList.add('hidden');
+                startGame();
+            });
+            
+            document.getElementById('controls-button').addEventListener('click', function() {
+                document.getElementById('start-screen').classList.add('hidden');
+                document.getElementById('controls-screen').classList.remove('hidden');
+            });
+            
+            document.getElementById('back-button').addEventListener('click', function() {
+                document.getElementById('controls-screen').classList.add('hidden');
+                document.getElementById('start-screen').classList.remove('hidden');
+            });
+            
+            document.getElementById('resume-button').addEventListener('click', function() {
+                document.getElementById('pause-screen').classList.add('hidden');
+                resumeGame();
+            });
+            
+            document.getElementById('menu-button').addEventListener('click', function() {
+                document.getElementById('pause-screen').classList.add('hidden');
+                document.getElementById('start-screen').classList.remove('hidden');
+                resetGame();
+            });
+            
+            // Gestisci la pressione dei tasti
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    if (document.getElementById('pause-screen').classList.contains('hidden')) {
+                        document.getElementById('pause-screen').classList.remove('hidden');
+                        pauseGame();
+                    } else {
+                        document.getElementById('pause-screen').classList.add('hidden');
+                        resumeGame();
+                    }
+                }
+            });
+            
+            // Funzioni di test
+            function startGame() {
+                console.log('Gioco avviato');
+                document.getElementById('status-bars').style.display = 'block';
+                
+                // Simula il cambiamento delle barre di stato
+                setInterval(function() {
+                    const healthFill = document.getElementById('health-fill');
+                    const fahFill = document.getElementById('fah-fill');
+                    const brihFill = document.getElementById('brih-fill');
+                    
+                    const healthValue = Math.random() * 100;
+                    const fahValue = Math.random() * 100;
+                    const brihValue = Math.random() * 100;
+                    
+                    healthFill.style.width = `${healthValue}%`;
+                    fahFill.style.width = `${fahValue}%`;
+                    brihFill.style.width = `${brihValue}%`;
+                    
+                    document.querySelector('.status-bar-label').textContent = `Salute: ${Math.floor(healthValue)}/100`;
+                    
+                    // Cambia il colore in base alla salute
+                    if (healthValue > 50) {
+                        healthFill.style.backgroundColor = '#2ecc71';
+                    } else if (healthValue > 25) {
+                        healthFill.style.backgroundColor = '#f39c12';
+                    } else {
+                        healthFill.style.backgroundColor = '#e74c3c';
+                    }
+                }, 2000);
+                
+                // Simula un dialogo dopo 3 secondi
+                setTimeout(function() {
+                    showDialog('Maestro Elian', 'Benvenuta, Aurora. Il tuo viaggio per salvare tuo fratello Leo sta per iniziare. Sei pronta ad affrontare i pericoli che ti attendono?', [
+                        'Sì, sono pronta a tutto pur di salvare mio fratello.',
+                        'Quali pericoli dovrò affrontare?',
+                        'Chi sei tu e come fai a conoscere mio fratello?'
+                    ]);
+                }, 3000);
+            }
+            
+            function pauseGame() {
+                console.log('Gioco in pausa');
+            }
+            
+            function resumeGame() {
+                console.log('Gioco ripreso');
+            }
+            
+            function resetGame() {
+                console.log('Gioco resettato');
+                document.getElementById('status-bars').style.display = 'none';
+                document.getElementById('dialog-box').classList.add('hidden');
+            }
+            
+            function showDialog(character, text, choices) {
+                const dialogBox = document.getElementById('dialog-box');
+                const dialogCharacter = document.getElementById('dialog-character');
+                const dialogText = document.getElementById('dialog-text');
+                const dialogChoices = document.getElementById('dialog-choices');
+                
+                dialogCharacter.textContent = character;
+                dialogText.textContent = text;
+                dialogChoices.innerHTML = '';
+                
+                if (choices && choices.length > 0) {
+                    for (let i = 0; i < choices.length; i++) {
+                        const choice = document.createElement('div');
+                        choice.className = 'dialog-choice';
+                        choice.textContent = `${i + 1}. ${choices[i]}`;
+                        choice.addEventListener('click', function() {
+                            handleDialogChoice(i);
+                        });
+                        dialogChoices.appendChild(choice);
+                    }
+                }
+                
+                dialogBox.classList.remove('hidden');
+            }
+            
+            function handleDialogChoice(choiceIndex) {
+                console.log(`Scelta selezionata: ${choiceIndex}`);
+                
+                // Simula una risposta in base alla scelta
+                switch (choiceIndex) {
+                    case 0:
+                        showDialog('Maestro Elian', 'Il tuo coraggio è ammirevole. Prendi questa mappa e questa arma, ti saranno utili nel tuo viaggio.', [
+                            'Grazie, partirò subito.'
+                        ]);
+                        break;
+                    case 1:
+                        showDialog('Maestro Elian', 'La città è piena di creature pericolose, i Fah e i Brih. Inoltre, la Dama Celeste ha creato un esercito per proteggere la sua posizione.', [
+                            'Come posso sconfiggerli?',
+                            'Torno alla domanda precedente.'
+                        ]);
+                        break;
+                    case 2:
+                        showDialog('Maestro Elian', 'Sono un vecchio amico di tua madre. Ho visto cosa è successo un anno fa e ho cercato di aiutare tuo fratello, ma sono stato catturato. Sono riuscito a fuggire solo di recente.', [
+                            'Dov\'è mio fratello ora?',
+                            'Torno alla domanda precedente.'
+                        ]);
+                        break;
+                    default:
+                        document.getElementById('dialog-box').classList.add('hidden');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

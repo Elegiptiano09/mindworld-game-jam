@@ -1,0 +1,1009 @@
+{
+  "quests": [
+    {
+      "id": "main_quest_1",
+      "title": "La Discesa",
+      "description": "Scendi dal villaggio fluttuante alla terra sottostante per cercare tuo fratello Leo.",
+      "type": "main",
+      "status": "active",
+      "objectives": [
+        {
+          "id": "talk_to_elian",
+          "description": "Parla con il Maestro Elian",
+          "type": "talk",
+          "targetId": "elian",
+          "completed": false
+        },
+        {
+          "id": "find_descent_path",
+          "description": "Trova il sentiero di discesa",
+          "type": "location",
+          "targetId": "descent_path",
+          "completed": false
+        },
+        {
+          "id": "reach_colorful_city",
+          "description": "Raggiungi la città colorata",
+          "type": "location",
+          "targetId": "colorful_city",
+          "completed": false
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "id": "health_potion",
+          "quantity": 3
+        },
+        {
+          "type": "exp",
+          "value": 100
+        }
+      ],
+      "nextQuest": "main_quest_2"
+    },
+    {
+      "id": "main_quest_2",
+      "title": "Alla Ricerca di Informazioni",
+      "description": "Cerca informazioni su tuo fratello Leo nella città colorata.",
+      "type": "main",
+      "status": "inactive",
+      "objectives": [
+        {
+          "id": "talk_to_citizens",
+          "description": "Parla con gli abitanti della città",
+          "type": "counter",
+          "targetCount": 3,
+          "currentCount": 0,
+          "completed": false
+        },
+        {
+          "id": "find_vex",
+          "description": "Trova Vex, il conduttore televisivo",
+          "type": "talk",
+          "targetId": "vex",
+          "completed": false
+        },
+        {
+          "id": "make_deal_with_vex",
+          "description": "Fai un accordo con Vex",
+          "type": "talk",
+          "targetId": "vex",
+          "dialogueId": "vex_deal",
+          "completed": false
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "id": "vex_contract",
+          "quantity": 1
+        },
+        {
+          "type": "exp",
+          "value": 150
+        }
+      ],
+      "nextQuest": "main_quest_3"
+    },
+    {
+      "id": "main_quest_3",
+      "title": "Il Co-conduttore",
+      "description": "Fai licenziare Grim, il co-conduttore di Vex, per ottenere informazioni su tuo fratello.",
+      "type": "main",
+      "status": "inactive",
+      "objectives": [
+        {
+          "id": "find_grim",
+          "description": "Trova Grim nello studio televisivo",
+          "type": "talk",
+          "targetId": "grim",
+          "completed": false
+        },
+        {
+          "id": "challenge_grim",
+          "description": "Sfida Grim",
+          "type": "battle",
+          "targetId": "grim",
+          "completed": false
+        },
+        {
+          "id": "return_to_vex",
+          "description": "Torna da Vex con la prova",
+          "type": "talk",
+          "targetId": "vex",
+          "dialogueId": "vex_after_grim",
+          "completed": false
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "id": "brih_staff",
+          "quantity": 1
+        },
+        {
+          "type": "exp",
+          "value": 200
+        },
+        {
+          "type": "ability",
+          "id": "brih_frost_nova"
+        }
+      ],
+      "nextQuest": "main_quest_4"
+    },
+    {
+      "id": "main_quest_4",
+      "title": "La Torre dell'Acqua",
+      "description": "Raggiungi la Torre dell'Acqua per incontrare il Protettore Aquos.",
+      "type": "main",
+      "status": "inactive",
+      "objectives": [
+        {
+          "id": "find_ember_frost",
+          "description": "Trova i gemelli Ember e Frost",
+          "type": "talk",
+          "targetId": "ember",
+          "completed": false
+        },
+        {
+          "id": "get_tower_key",
+          "description": "Ottieni la chiave per la Torre dell'Acqua",
+          "type": "item",
+          "targetId": "aquos_key",
+          "completed": false
+        },
+        {
+          "id": "reach_water_tower",
+          "description": "Raggiungi la Torre dell'Acqua",
+          "type": "location",
+          "targetId": "water_tower",
+          "completed": false
+        },
+        {
+          "id": "meet_aquos",
+          "description": "Incontra il Protettore Aquos",
+          "type": "talk",
+          "targetId": "aquos",
+          "completed": false
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "id": "mixed_potion",
+          "quantity": 2
+        },
+        {
+          "type": "exp",
+          "value": 250
+        }
+      ],
+      "nextQuest": "main_quest_5"
+    },
+    {
+      "id": "main_quest_5",
+      "title": "Riunione",
+      "description": "Trova tuo fratello Leo e affronta la Dama Celeste.",
+      "type": "main",
+      "status": "inactive",
+      "objectives": [
+        {
+          "id": "find_leo",
+          "description": "Trova Leo nella Torre dell'Acqua",
+          "type": "talk",
+          "targetId": "leo",
+          "completed": false
+        },
+        {
+          "id": "reach_celeste_chamber",
+          "description": "Raggiungi la camera della Dama Celeste",
+          "type": "location",
+          "targetId": "celeste_chamber",
+          "completed": false
+        },
+        {
+          "id": "confront_celeste",
+          "description": "Affronta la Dama Celeste",
+          "type": "battle",
+          "targetId": "celeste",
+          "completed": false
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "id": "celeste_letter",
+          "quantity": 1
+        },
+        {
+          "type": "item",
+          "id": "combined_crystal",
+          "quantity": 3
+        },
+        {
+          "type": "exp",
+          "value": 500
+        },
+        {
+          "type": "ability",
+          "id": "combined_elemental_burst"
+        }
+      ],
+      "nextQuest": null
+    },
+    {
+      "id": "side_quest_1",
+      "title": "Mercante in Difficoltà",
+      "description": "Aiuta Nyx a recuperare la sua merce rubata.",
+      "type": "side",
+      "status": "inactive",
+      "objectives": [
+        {
+          "id": "talk_to_nyx",
+          "description": "Parla con Nyx",
+          "type": "talk",
+          "targetId": "nyx",
+          "completed": false
+        },
+        {
+          "id": "find_stolen_goods",
+          "description": "Trova la merce rubata",
+          "type": "item",
+          "targetId": "stolen_goods",
+          "completed": false
+        },
+        {
+          "id": "defeat_thieves",
+          "description": "Sconfiggi i ladri",
+          "type": "battle",
+          "targetId": "thieves",
+          "completed": false
+        },
+        {
+          "id": "return_to_nyx",
+          "description": "Riporta la merce a Nyx",
+          "type": "talk",
+          "targetId": "nyx",
+          "dialogueId": "nyx_thanks",
+          "completed": false
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "id": "protection_ring",
+          "quantity": 1
+        },
+        {
+          "type": "money",
+          "value": 200
+        },
+        {
+          "type": "exp",
+          "value": 150
+        }
+      ],
+      "nextQuest": null
+    },
+    {
+      "id": "side_quest_2",
+      "title": "Cristalli Elementali",
+      "description": "Raccogli cristalli Fah e Brih per Ember e Frost.",
+      "type": "side",
+      "status": "inactive",
+      "objectives": [
+        {
+          "id": "talk_to_ember_frost",
+          "description": "Parla con Ember e Frost",
+          "type": "talk",
+          "targetId": "ember",
+          "completed": false
+        },
+        {
+          "id": "collect_fah_crystals",
+          "description": "Raccogli 5 Cristalli Fah",
+          "type": "item",
+          "targetId": "fah_crystal",
+          "targetCount": 5,
+          "completed": false
+        },
+        {
+          "id": "collect_brih_crystals",
+          "description": "Raccogli 5 Cristalli Brih",
+          "type": "item",
+          "targetId": "brih_crystal",
+          "targetCount": 5,
+          "completed": false
+        },
+        {
+          "id": "return_to_twins",
+          "description": "Riporta i cristalli ai gemelli",
+          "type": "talk",
+          "targetId": "frost",
+          "dialogueId": "twins_thanks",
+          "completed": false
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "id": "harmony_amulet",
+          "quantity": 1
+        },
+        {
+          "type": "ability",
+          "id": "combined_harmony"
+        },
+        {
+          "type": "exp",
+          "value": 200
+        }
+      ],
+      "nextQuest": null
+    },
+    {
+      "id": "side_quest_3",
+      "title": "Il Quiz del Tetto",
+      "description": "Partecipa al quiz televisivo 'Il Tetto Semi Sconosciuto'.",
+      "type": "side",
+      "status": "inactive",
+      "objectives": [
+        {
+          "id": "talk_to_vex_quiz",
+          "description": "Parla con Vex riguardo al quiz",
+          "type": "talk",
+          "targetId": "vex",
+          "dialogueId": "vex_quiz_intro",
+          "completed": false
+        },
+        {
+          "id": "answer_questions",
+          "description": "Rispondi a 5 domande del quiz",
+          "type": "counter",
+          "targetCount": 5,
+          "currentCount": 0,
+          "completed": false
+        },
+        {
+          "id": "win_quiz",
+          "description": "Vinci il quiz",
+          "type": "custom",
+          "completed": false
+        }
+      ],
+      "rewards": [
+        {
+          "type": "money",
+          "value": 500
+        },
+        {
+          "type": "item",
+          "id": "dual_blade",
+          "quantity": 1
+        },
+        {
+          "type": "exp",
+          "value": 300
+        }
+      ],
+      "nextQuest": null
+    }
+  ],
+  "dialogues": {
+    "elian": [
+      {
+        "id": "elian_intro",
+        "text": "Aurora, è giunto il momento. È passato un anno da quando il nostro villaggio si è sollevato in cielo, separandoci da tuo fratello Leo e dagli altri.",
+        "options": [
+          {
+            "text": "Devo trovare Leo. Come posso scendere?",
+            "nextId": "elian_descent"
+          },
+          {
+            "text": "Cosa è successo esattamente un anno fa?",
+            "nextId": "elian_explanation"
+          }
+        ]
+      },
+      {
+        "id": "elian_descent",
+        "text": "C'è un sentiero sul bordo orientale del villaggio. Ti porterà giù, ma fai attenzione. Il mondo sottostante potrebbe essere molto cambiato.",
+        "options": [
+          {
+            "text": "Sono pronta a partire.",
+            "nextId": "elian_ready",
+            "questUpdate": {
+              "questId": "main_quest_1",
+              "objectiveId": "talk_to_elian",
+              "complete": true
+            }
+          },
+          {
+            "text": "Cosa dovrei aspettarmi?",
+            "nextId": "elian_warning"
+          }
+        ]
+      },
+      {
+        "id": "elian_explanation",
+        "text": "Nessuno lo sa con certezza. Una mattina ci siamo svegliati e il villaggio stava già salendo. Alcuni dicono che sia stata la Dama Celeste, ma sono solo voci.",
+        "options": [
+          {
+            "text": "Chi è la Dama Celeste?",
+            "nextId": "elian_celeste"
+          },
+          {
+            "text": "Come posso scendere?",
+            "nextId": "elian_descent"
+          }
+        ]
+      },
+      {
+        "id": "elian_warning",
+        "text": "Le poche persone che sono scese e tornate parlano di una vegetazione colorata e di strane creature. E di una grande città dove prima non c'era nulla.",
+        "options": [
+          {
+            "text": "Creature? Che tipo di creature?",
+            "nextId": "elian_creatures"
+          },
+          {
+            "text": "Sono pronta a partire.",
+            "nextId": "elian_ready",
+            "questUpdate": {
+              "questId": "main_quest_1",
+              "objectiveId": "talk_to_elian",
+              "complete": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "elian_celeste",
+        "text": "Si dice che sia una donna potente, vestita di blu. Alcuni la considerano una benefattrice, altri una tirannica. Nessuno sa davvero chi sia.",
+        "options": [
+          {
+            "text": "Perché avrebbe fatto sollevare il villaggio?",
+            "nextId": "elian_motive"
+          },
+          {
+            "text": "Come posso scendere?",
+            "nextId": "elian_descent"
+          }
+        ]
+      },
+      {
+        "id": "elian_creatures",
+        "text": "Parlano di due tipi di creature: i Fah, di colore rosso, e i Brih, di colore blu. Sembrano vivere in armonia con gli umani nella nuova città.",
+        "options": [
+          {
+            "text": "Sono pericolosi?",
+            "nextId": "elian_danger"
+          },
+          {
+            "text": "Sono pronta a partire.",
+            "nextId": "elian_ready",
+            "questUpdate": {
+              "questId": "main_quest_1",
+              "objectiveId": "talk_to_elian",
+              "complete": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "elian_motive",
+        "text": "Le voci dicono che non si fidasse della gente del villaggio. Che temesse che avrebbero portato disordine nel suo mondo perfetto.",
+        "options": [
+          {
+            "text": "Devo scoprire la verità.",
+            "nextId": "elian_truth"
+          },
+          {
+            "text": "Come posso scendere?",
+            "nextId": "elian_descent"
+          }
+        ]
+      },
+      {
+        "id": "elian_danger",
+        "text": "Non sembrano ostili, ma il mondo là sotto è pieno di pericoli. Ci sono creature selvatiche che attaccano i viaggiatori.",
+        "options": [
+          {
+            "text": "Come posso difendermi?",
+            "nextId": "elian_defense"
+          },
+          {
+            "text": "Sono pronta a partire.",
+            "nextId": "elian_ready",
+            "questUpdate": {
+              "questId": "main_quest_1",
+              "objectiveId": "talk_to_elian",
+              "complete": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "elian_truth",
+        "text": "È quello che tutti vogliamo, Aurora. Trova Leo e scopri cosa è successo veramente. Il destino del nostro villaggio potrebbe dipendere da te.",
+        "options": [
+          {
+            "text": "Non vi deluderò.",
+            "nextId": "elian_ready",
+            "questUpdate": {
+              "questId": "main_quest_1",
+              "objectiveId": "talk_to_elian",
+              "complete": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "elian_defense",
+        "text": "Nella città ci sono tecnologie che permettono di eseguire attacchi magici. Cerca qualcuno che possa insegnarti a usarle.",
+        "options": [
+          {
+            "text": "Lo farò. Sono pronta a partire.",
+            "nextId": "elian_ready",
+            "questUpdate": {
+              "questId": "main_quest_1",
+              "objectiveId": "talk_to_elian",
+              "complete": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "elian_ready",
+        "text": "Buona fortuna, Aurora. Porta questa mappa con te, anche se temo che non sarà molto utile se tutto è cambiato. E prendi queste pozioni, potrebbero servirti.",
+        "options": [
+          {
+            "text": "Grazie, Maestro Elian. Tornerò con Leo.",
+            "nextId": null,
+            "giveItem": {
+              "id": "health_potion",
+              "quantity": 2
+            }
+          }
+        ]
+      }
+    ],
+    "vex": [
+      {
+        "id": "vex_intro",
+        "text": "Ehi, tu! Sì, proprio tu! Ti ho mai visto prima? No, decisamente no. Ricorderei un viso come il tuo. Sono Vex, conduttore del famoso quiz 'Il Tetto Semi Sconosciuto'!",
+        "options": [
+          {
+            "text": "Piacere di conoscerti. Sto cercando mio fratello Leo.",
+            "nextId": "vex_leo"
+          },
+          {
+            "text": "Cos'è 'Il Tetto Semi Sconosciuto'?",
+            "nextId": "vex_quiz_explain"
+          }
+        ]
+      },
+      {
+        "id": "vex_leo",
+        "text": "Leo, eh? Hmm, potrei conoscerlo, potrei non conoscerlo. Sono un giornalista oltre che un conduttore, sai? Conosco tutti in questa città.",
+        "options": [
+          {
+            "text": "Per favore, è importante. È rimasto qui quando il villaggio si è sollevato.",
+            "nextId": "vex_deal_intro"
+          },
+          {
+            "text": "Puoi dirmi qualcosa sulla Dama Celeste?",
+            "nextId": "vex_celeste"
+          }
+        ]
+      },
+      {
+        "id": "vex_quiz_explain",
+        "text": "Solo il quiz più popolare di tutta la città! I concorrenti rispondono a domande su argomenti che conoscono solo in parte. È divertentissimo!",
+        "options": [
+          {
+            "text": "Sembra interessante. Posso partecipare?",
+            "nextId": "vex_quiz_invite",
+            "questTrigger": "side_quest_3"
+          },
+          {
+            "text": "Sto cercando mio fratello Leo. Puoi aiutarmi?",
+            "nextId": "vex_leo"
+          }
+        ]
+      },
+      {
+        "id": "vex_deal_intro",
+        "text": "Mmm, potrei avere qualche informazione... ma vedi, non do mai niente gratis. Ho un piccolo problema con il mio co-conduttore, Grim.",
+        "options": [
+          {
+            "text": "Che tipo di problema?",
+            "nextId": "vex_deal_problem"
+          },
+          {
+            "text": "Non ho tempo per questo. Devo trovare Leo.",
+            "nextId": "vex_insist"
+          }
+        ]
+      },
+      {
+        "id": "vex_celeste",
+        "text": "La Dama Celeste? Oh, è meglio non parlare di lei in pubblico. Ha orecchie ovunque. Ma se davvero vuoi saperne di più, aiutami con il mio problema.",
+        "options": [
+          {
+            "text": "Che problema hai?",
+            "nextId": "vex_deal_problem"
+          },
+          {
+            "text": "È pericolosa?",
+            "nextId": "vex_celeste_danger"
+          }
+        ]
+      },
+      {
+        "id": "vex_quiz_invite",
+        "text": "Certo! Siamo sempre alla ricerca di nuovi concorrenti. Vieni allo studio televisivo quando sei pronto. Ti farò alcune domande di prova.",
+        "options": [
+          {
+            "text": "Ci sarò. Ma ora, riguardo mio fratello Leo...",
+            "nextId": "vex_leo"
+          },
+          {
+            "text": "Grazie, ci penserò.",
+            "nextId": null
+          }
+        ]
+      },
+      {
+        "id": "vex_deal_problem",
+        "text": "Grim sta rovinando lo show! Il pubblico lo odia, ma ha un contratto blindato. Se potessi farlo licenziare... beh, sarei molto riconoscente.",
+        "options": [
+          {
+            "text": "Come posso farlo licenziare?",
+            "nextId": "vex_deal_how"
+          },
+          {
+            "text": "E in cambio mi dirai dove trovare Leo?",
+            "nextId": "vex_deal_confirm"
+          }
+        ]
+      },
+      {
+        "id": "vex_insist",
+        "text": "Oh, ma io sono l'unico che può aiutarti! Nessun altro in città sa quello che so io. E credimi, so TUTTO su tutti.",
+        "options": [
+          {
+            "text": "Va bene, qual è il tuo problema?",
+            "nextId": "vex_deal_problem"
+          },
+          {
+            "text": "Troverò qualcun altro che mi aiuti.",
+            "nextId": "vex_warning"
+          }
+        ]
+      },
+      {
+        "id": "vex_celeste_danger",
+        "text": "Pericolosa? No, no... è solo... molto potente. E ha idee molto precise su come dovrebbe essere la città. Chi non è d'accordo... beh, sparisce.",
+        "options": [
+          {
+            "text": "Capisco. Parlami del tuo problema con Grim.",
+            "nextId": "vex_deal_problem"
+          },
+          {
+            "text": "Devo trovarla. Potrebbe sapere dov'è Leo.",
+            "nextId": "vex_celeste_find"
+          }
+        ]
+      },
+      {
+        "id": "vex_deal_how",
+        "text": "Devi sfidarlo! È molto orgoglioso. Se lo batti in un duello pubblico, sarà così umiliato che dovrà dimettersi. È l'unico modo per aggirare il contratto.",
+        "options": [
+          {
+            "text": "Va bene, lo sfiderò. Dove posso trovarlo?",
+            "nextId": "vex_deal_where"
+          },
+          {
+            "text": "Sembra pericoloso. C'è un altro modo?",
+            "nextId": "vex_deal_alternative"
+          }
+        ]
+      },
+      {
+        "id": "vex_deal_confirm",
+        "text": "Non solo! Ti dirò tutto quello che so su Leo, sulla Dama Celeste, e su come raggiungere la Torre dell'Acqua. È lì che troverai le risposte che cerchi.",
+        "options": [
+          {
+            "text": "Affare fatto. Come trovo Grim?",
+            "nextId": "vex_deal_where",
+            "questUpdate": {
+              "questId": "main_quest_2",
+              "objectiveId": "make_deal_with_vex",
+              "complete": true
+            }
+          },
+          {
+            "text": "Devo pensarci.",
+            "nextId": "vex_deal_think"
+          }
+        ]
+      },
+      {
+        "id": "vex_warning",
+        "text": "Buona fortuna con quello! Ma ricorda, in questa città le informazioni sono la mia valuta. E io ne ho il monopolio.",
+        "options": [
+          {
+            "text": "Tornerò se cambio idea.",
+            "nextId": null
+          }
+        ]
+      },
+      {
+        "id": "vex_celeste_find",
+        "text": "Trovarla? Oh no, non funziona così. È lei che ti trova, se vuole. Ma se davvero vuoi avvicinarti a lei, devi prima passare dal Protettore Aquos nella Torre dell'Acqua.",
+        "options": [
+          {
+            "text": "Come posso raggiungere la Torre dell'Acqua?",
+            "nextId": "vex_aquos"
+          },
+          {
+            "text": "Parlami del tuo problema con Grim.",
+            "nextId": "vex_deal_problem"
+          }
+        ]
+      },
+      {
+        "id": "vex_deal_where",
+        "text": "È sempre allo studio televisivo, a est della piazza centrale. Ama stare sotto i riflettori. Sfidalo durante una pausa pubblicitaria, quando il pubblico è ancora presente.",
+        "options": [
+          {
+            "text": "Lo farò. Tornerò quando avrò risolto il problema.",
+            "nextId": null,
+            "giveItem": {
+              "id": "vex_contract",
+              "quantity": 1
+            },
+            "questTrigger": "main_quest_3"
+          }
+        ]
+      },
+      {
+        "id": "vex_deal_alternative",
+        "text": "No, temo di no. Grim è troppo testardo per essere convinto con le parole. Solo una sconfitta pubblica lo farà dimettere.",
+        "options": [
+          {
+            "text": "Va bene, lo sfiderò. Dove posso trovarlo?",
+            "nextId": "vex_deal_where"
+          },
+          {
+            "text": "Ci penserò.",
+            "nextId": "vex_deal_think"
+          }
+        ]
+      },
+      {
+        "id": "vex_deal_think",
+        "text": "Non pensarci troppo! L'offerta potrebbe scadere. E credimi, sono l'unico che può aiutarti a trovare Leo.",
+        "options": [
+          {
+            "text": "Va bene, accetto. Come trovo Grim?",
+            "nextId": "vex_deal_where",
+            "questUpdate": {
+              "questId": "main_quest_2",
+              "objectiveId": "make_deal_with_vex",
+              "complete": true
+            }
+          },
+          {
+            "text": "Tornerò più tardi.",
+            "nextId": null
+          }
+        ]
+      },
+      {
+        "id": "vex_aquos",
+        "text": "La Torre dell'Acqua è nella parte nord della città, ma è sorvegliata. Hai bisogno di una chiave speciale. I gemelli Ember e Frost potrebbero aiutarti a ottenerla.",
+        "options": [
+          {
+            "text": "Chi sono Ember e Frost?",
+            "nextId": "vex_twins"
+          },
+          {
+            "text": "Prima risolverò il tuo problema con Grim.",
+            "nextId": "vex_deal_where",
+            "questUpdate": {
+              "questId": "main_quest_2",
+              "objectiveId": "make_deal_with_vex",
+              "complete": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "vex_twins",
+        "text": "Due fratelli, uno Fah e uno Brih. Sono molto rari i gemelli di tipi diversi! Vivono nella piazza del mercato e conoscono molti segreti della città.",
+        "options": [
+          {
+            "text": "Li cercherò dopo aver risolto il tuo problema.",
+            "nextId": "vex_deal_where",
+            "questUpdate": {
+              "questId": "main_quest_2",
+              "objectiveId": "make_deal_with_vex",
+              "complete": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "vex_after_grim",
+        "text": "L'hai fatto davvero! Grim si è dimesso! Non posso crederci! Sei fantastica, Aurora. Come promesso, ecco le informazioni che cerchi.",
+        "options": [
+          {
+            "text": "Dov'è mio fratello Leo?",
+            "nextId": "vex_leo_info"
+          },
+          {
+            "text": "Parlami della Dama Celeste.",
+            "nextId": "vex_celeste_info"
+          }
+        ]
+      },
+      {
+        "id": "vex_leo_info",
+        "text": "Leo è nella Torre dell'Acqua. È stato catturato durante lo scontro con la Dama Celeste un anno fa. Da allora è tenuto prigioniero dal Protettore Aquos.",
+        "options": [
+          {
+            "text": "È vivo? Sta bene?",
+            "nextId": "vex_leo_status"
+          },
+          {
+            "text": "Parlami della Dama Celeste.",
+            "nextId": "vex_celeste_info"
+          }
+        ]
+      },
+      {
+        "id": "vex_celeste_info",
+        "text": "La Dama Celeste è colei che ha fondato questa città. Ha sollevato il villaggio perché temeva che la gente avrebbe portato disordine nel suo mondo perfetto.",
+        "options": [
+          {
+            "text": "Perché ha lasciato alcune persone a terra?",
+            "nextId": "vex_celeste_reason"
+          },
+          {
+            "text": "Dov'è mio fratello Leo?",
+            "nextId": "vex_leo_info"
+          }
+        ]
+      },
+      {
+        "id": "vex_leo_status",
+        "text": "Sì, è vivo. La Dama Celeste lo tiene come ostaggio. Sa che è tuo fratello e teme che tu possa causare problemi. Leo ha cercato di opporsi a lei un anno fa.",
+        "options": [
+          {
+            "text": "Come posso raggiungerlo?",
+            "nextId": "vex_tower_access"
+          },
+          {
+            "text": "Perché la Dama Celeste ha sollevato il villaggio?",
+            "nextId": "vex_celeste_reason"
+          }
+        ]
+      },
+      {
+        "id": "vex_celeste_reason",
+        "text": "Voleva solo le persone che riteneva 'pure'. Gli altri, come Leo, hanno cercato di fermarla. C'è stata una battaglia, e Leo è stato catturato mentre gli altri sono fuggiti.",
+        "options": [
+          {
+            "text": "Dove sono gli altri ora?",
+            "nextId": "vex_others"
+          },
+          {
+            "text": "Come posso raggiungere Leo?",
+            "nextId": "vex_tower_access"
+          }
+        ]
+      },
+      {
+        "id": "vex_tower_access",
+        "text": "Devi trovare i gemelli Ember e Frost nella piazza del mercato. Loro hanno una chiave per la Torre dell'Acqua. Ti aiuteranno se gli dirai che ti mando io.",
+        "options": [
+          {
+            "text": "Grazie per l'aiuto, Vex.",
+            "nextId": "vex_goodbye",
+            "questUpdate": {
+              "questId": "main_quest_3",
+              "objectiveId": "return_to_vex",
+              "complete": true
+            },
+            "questTrigger": "main_quest_4"
+          }
+        ]
+      },
+      {
+        "id": "vex_others",
+        "text": "Si nascondono. Alcuni sono fuggiti oltre i confini della città, altri vivono in segreto tra noi. La Dama Celeste li sta ancora cercando.",
+        "options": [
+          {
+            "text": "Come posso raggiungere Leo?",
+            "nextId": "vex_tower_access"
+          }
+        ]
+      },
+      {
+        "id": "vex_goodbye",
+        "text": "Buona fortuna, Aurora. E grazie per avermi liberato di Grim! Ah, prendi questo bastone. Ti aiuterà a controllare l'energia Brih. Ne avrai bisogno nella Torre dell'Acqua.",
+        "options": [
+          {
+            "text": "Grazie, Vex. Ci vediamo.",
+            "nextId": null
+          }
+        ]
+      },
+      {
+        "id": "vex_quiz_intro",
+        "text": "Eccoti qui! Pronto per partecipare al 'Tetto Semi Sconosciuto'? È semplice: ti farò 5 domande su argomenti che conosci solo in parte. Più risposte corrette dai, più grande sarà il premio!",
+        "options": [
+          {
+            "text": "Sono pronto! Iniziamo.",
+            "nextId": "vex_quiz_start",
+            "questUpdate": {
+              "questId": "side_quest_3",
+              "objectiveId": "talk_to_vex_quiz",
+              "complete": true
+            }
+          },
+          {
+            "text": "Quali sono i premi?",
+            "nextId": "vex_quiz_prizes"
+          }
+        ]
+      },
+      {
+        "id": "vex_quiz_prizes",
+        "text": "Oh, abbiamo premi fantastici! Denaro, oggetti rari, e per il campione assoluto... una spada leggendaria che combina le energie Fah e Brih!",
+        "options": [
+          {
+            "text": "Fantastico! Sono pronto a iniziare.",
+            "nextId": "vex_quiz_start",
+            "questUpdate": {
+              "questId": "side_quest_3",
+              "objectiveId": "talk_to_vex_quiz",
+              "complete": true
+            }
+          },
+          {
+            "text": "Tornerò più tardi.",
+            "nextId": null
+          }
+        ]
+      },
+      {
+        "id": "vex_quiz_start",
+        "text": "Eccellente! Prima domanda: Qual è l'elemento che i Fah controllano?",
+        "options": [
+          {
+            "text": "Fuoco",
+            "nextId": "vex_quiz_correct_1",
+            "questUpdate": {
+              "questId": "side_quest_3",
+              "objectiveId": "answer_questions",
+              "incrementCounter": 1
+            }
+          },
+          {
+            "text": "Acqua",
+            "nextId": "vex_quiz_wrong_1"
+          },
+          {
+            "text": "Terra",
+            "nextId": "vex_quiz_wrong_1"
+          }
+        ]
+      }
+    ]
+  }
+}

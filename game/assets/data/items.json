@@ -1,0 +1,414 @@
+{
+  "items": {
+    "consumables": [
+      {
+        "id": "health_potion",
+        "name": "Pozione di Salute",
+        "description": "Ripristina 30 punti salute.",
+        "type": "consumable",
+        "subtype": "potion",
+        "icon": "item_health_potion",
+        "value": 50,
+        "stackable": true,
+        "maxStack": 10,
+        "effects": [
+          {
+            "type": "heal",
+            "value": 30
+          }
+        ],
+        "useText": "Hai bevuto una Pozione di Salute e recuperato 30 punti salute."
+      },
+      {
+        "id": "energy_potion",
+        "name": "Pozione di Energia",
+        "description": "Ripristina 25 punti energia.",
+        "type": "consumable",
+        "subtype": "potion",
+        "icon": "item_energy_potion",
+        "value": 50,
+        "stackable": true,
+        "maxStack": 10,
+        "effects": [
+          {
+            "type": "energy",
+            "value": 25
+          }
+        ],
+        "useText": "Hai bevuto una Pozione di Energia e recuperato 25 punti energia."
+      },
+      {
+        "id": "mixed_potion",
+        "name": "Pozione Mista",
+        "description": "Ripristina 15 punti salute e 15 punti energia.",
+        "type": "consumable",
+        "subtype": "potion",
+        "icon": "item_mixed_potion",
+        "value": 75,
+        "stackable": true,
+        "maxStack": 5,
+        "effects": [
+          {
+            "type": "heal",
+            "value": 15
+          },
+          {
+            "type": "energy",
+            "value": 15
+          }
+        ],
+        "useText": "Hai bevuto una Pozione Mista e recuperato 15 punti salute e 15 punti energia."
+      },
+      {
+        "id": "antidote",
+        "name": "Antidoto",
+        "description": "Rimuove tutti gli effetti di stato negativi.",
+        "type": "consumable",
+        "subtype": "potion",
+        "icon": "item_antidote",
+        "value": 100,
+        "stackable": true,
+        "maxStack": 5,
+        "effects": [
+          {
+            "type": "cure",
+            "value": "all"
+          }
+        ],
+        "useText": "Hai usato un Antidoto e rimosso tutti gli effetti di stato negativi."
+      },
+      {
+        "id": "food_bread",
+        "name": "Pane",
+        "description": "Un semplice pane che ripristina 10 punti salute.",
+        "type": "consumable",
+        "subtype": "food",
+        "icon": "item_bread",
+        "value": 15,
+        "stackable": true,
+        "maxStack": 20,
+        "effects": [
+          {
+            "type": "heal",
+            "value": 10
+          }
+        ],
+        "useText": "Hai mangiato del Pane e recuperato 10 punti salute."
+      }
+    ],
+    "equipment": [
+      {
+        "id": "fah_sword",
+        "name": "Spada di Fuoco",
+        "description": "Una spada infusa con l'energia Fah. Aumenta il danno degli attacchi Fah del 20%.",
+        "type": "equipment",
+        "subtype": "weapon",
+        "icon": "item_fah_sword",
+        "value": 500,
+        "stackable": false,
+        "slot": "weapon",
+        "stats": {
+          "attack": 15,
+          "fahBonus": 0.2
+        },
+        "requirements": {
+          "level": 5
+        }
+      },
+      {
+        "id": "brih_staff",
+        "name": "Bastone di Ghiaccio",
+        "description": "Un bastone infuso con l'energia Brih. Aumenta il danno degli attacchi Brih del 20%.",
+        "type": "equipment",
+        "subtype": "weapon",
+        "icon": "item_brih_staff",
+        "value": 500,
+        "stackable": false,
+        "slot": "weapon",
+        "stats": {
+          "attack": 12,
+          "brihBonus": 0.2
+        },
+        "requirements": {
+          "level": 5
+        }
+      },
+      {
+        "id": "dual_blade",
+        "name": "Lama Duale",
+        "description": "Una lama che combina le energie Fah e Brih. Aumenta il danno di tutti gli attacchi del 10%.",
+        "type": "equipment",
+        "subtype": "weapon",
+        "icon": "item_dual_blade",
+        "value": 1000,
+        "stackable": false,
+        "slot": "weapon",
+        "stats": {
+          "attack": 20,
+          "fahBonus": 0.1,
+          "brihBonus": 0.1
+        },
+        "requirements": {
+          "level": 10
+        }
+      },
+      {
+        "id": "leather_armor",
+        "name": "Armatura di Cuoio",
+        "description": "Un'armatura leggera che offre protezione di base.",
+        "type": "equipment",
+        "subtype": "armor",
+        "icon": "item_leather_armor",
+        "value": 300,
+        "stackable": false,
+        "slot": "armor",
+        "stats": {
+          "defense": 10
+        },
+        "requirements": {
+          "level": 1
+        }
+      },
+      {
+        "id": "fah_robe",
+        "name": "Veste Fah",
+        "description": "Una veste infusa con l'energia Fah. Riduce il costo energetico degli attacchi Fah del 15%.",
+        "type": "equipment",
+        "subtype": "armor",
+        "icon": "item_fah_robe",
+        "value": 450,
+        "stackable": false,
+        "slot": "armor",
+        "stats": {
+          "defense": 8,
+          "fahEnergyCost": -0.15
+        },
+        "requirements": {
+          "level": 5
+        }
+      },
+      {
+        "id": "brih_robe",
+        "name": "Veste Brih",
+        "description": "Una veste infusa con l'energia Brih. Riduce il costo energetico degli attacchi Brih del 15%.",
+        "type": "equipment",
+        "subtype": "armor",
+        "icon": "item_brih_robe",
+        "value": 450,
+        "stackable": false,
+        "slot": "armor",
+        "stats": {
+          "defense": 8,
+          "brihEnergyCost": -0.15
+        },
+        "requirements": {
+          "level": 5
+        }
+      },
+      {
+        "id": "harmony_amulet",
+        "name": "Amuleto dell'Armonia",
+        "description": "Un amuleto che bilancia le energie Fah e Brih. Aumenta la rigenerazione di energia.",
+        "type": "equipment",
+        "subtype": "accessory",
+        "icon": "item_harmony_amulet",
+        "value": 600,
+        "stackable": false,
+        "slot": "accessory",
+        "stats": {
+          "energyRegen": 2
+        },
+        "requirements": {
+          "level": 8
+        }
+      },
+      {
+        "id": "protection_ring",
+        "name": "Anello di Protezione",
+        "description": "Un anello che protegge dagli effetti di stato negativi.",
+        "type": "equipment",
+        "subtype": "accessory",
+        "icon": "item_protection_ring",
+        "value": 500,
+        "stackable": false,
+        "slot": "accessory",
+        "stats": {
+          "statusResistance": 0.3
+        },
+        "requirements": {
+          "level": 6
+        }
+      }
+    ],
+    "materials": [
+      {
+        "id": "fah_crystal",
+        "name": "Cristallo Fah",
+        "description": "Un cristallo che contiene energia Fah pura. Usato per potenziare armi e creare pozioni.",
+        "type": "material",
+        "subtype": "crystal",
+        "icon": "item_fah_crystal",
+        "value": 100,
+        "stackable": true,
+        "maxStack": 50
+      },
+      {
+        "id": "brih_crystal",
+        "name": "Cristallo Brih",
+        "description": "Un cristallo che contiene energia Brih pura. Usato per potenziare armi e creare pozioni.",
+        "type": "material",
+        "subtype": "crystal",
+        "icon": "item_brih_crystal",
+        "value": 100,
+        "stackable": true,
+        "maxStack": 50
+      },
+      {
+        "id": "combined_crystal",
+        "name": "Cristallo Combinato",
+        "description": "Un raro cristallo che contiene sia energia Fah che Brih. Usato per creare oggetti potenti.",
+        "type": "material",
+        "subtype": "crystal",
+        "icon": "item_combined_crystal",
+        "value": 500,
+        "stackable": true,
+        "maxStack": 10
+      },
+      {
+        "id": "metal_scrap",
+        "name": "Rottame Metallico",
+        "description": "Pezzi di metallo recuperati. Usati per riparare e creare equipaggiamento.",
+        "type": "material",
+        "subtype": "metal",
+        "icon": "item_metal_scrap",
+        "value": 25,
+        "stackable": true,
+        "maxStack": 100
+      },
+      {
+        "id": "fabric",
+        "name": "Tessuto",
+        "description": "Tessuto di buona qualità. Usato per creare vesti e armature leggere.",
+        "type": "material",
+        "subtype": "cloth",
+        "icon": "item_fabric",
+        "value": 20,
+        "stackable": true,
+        "maxStack": 100
+      }
+    ],
+    "quest": [
+      {
+        "id": "vex_contract",
+        "name": "Contratto di Vex",
+        "description": "Un contratto che prova l'accordo tra te e Vex per far licenziare Grim.",
+        "type": "quest",
+        "subtype": "document",
+        "icon": "item_document",
+        "value": 0,
+        "stackable": false,
+        "questId": "vex_deal"
+      },
+      {
+        "id": "aquos_key",
+        "name": "Chiave di Aquos",
+        "description": "Una chiave magica che permette l'accesso alla Torre dell'Acqua.",
+        "type": "quest",
+        "subtype": "key",
+        "icon": "item_key",
+        "value": 0,
+        "stackable": false,
+        "questId": "tower_access"
+      },
+      {
+        "id": "celeste_letter",
+        "name": "Lettera della Dama Celeste",
+        "description": "Una lettera scritta dalla Dama Celeste che spiega le sue motivazioni.",
+        "type": "quest",
+        "subtype": "document",
+        "icon": "item_letter",
+        "value": 0,
+        "stackable": false,
+        "questId": "celeste_truth"
+      }
+    ]
+  },
+  "recipes": [
+    {
+      "id": "health_potion_recipe",
+      "name": "Ricetta: Pozione di Salute",
+      "result": {
+        "id": "health_potion",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "id": "fah_crystal",
+          "quantity": 1
+        },
+        {
+          "id": "fabric",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "energy_potion_recipe",
+      "name": "Ricetta: Pozione di Energia",
+      "result": {
+        "id": "energy_potion",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "id": "brih_crystal",
+          "quantity": 1
+        },
+        {
+          "id": "fabric",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "mixed_potion_recipe",
+      "name": "Ricetta: Pozione Mista",
+      "result": {
+        "id": "mixed_potion",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "id": "fah_crystal",
+          "quantity": 1
+        },
+        {
+          "id": "brih_crystal",
+          "quantity": 1
+        },
+        {
+          "id": "fabric",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "harmony_amulet_recipe",
+      "name": "Ricetta: Amuleto dell'Armonia",
+      "result": {
+        "id": "harmony_amulet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "id": "combined_crystal",
+          "quantity": 1
+        },
+        {
+          "id": "metal_scrap",
+          "quantity": 5
+        }
+      ]
+    }
+  ]
+}
