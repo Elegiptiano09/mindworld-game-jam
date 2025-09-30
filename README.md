@@ -36,6 +36,7 @@ Durante la sua avventura, Aurora dovrà scoprire:
 - **Sistema di transizione** tra livelli con punti di connessione
 - **Punti di salvataggio** strategicamente posizionati
 - **Ambienti diversificati** con tileset e sfondi unici
+- **Editor di livelli** integrato per creare e modificare livelli personalizzati
 
 ### Sistema di Combattimento
 - **Attacchi elementali**:
@@ -43,8 +44,26 @@ Durante la sua avventura, Aurora dovrà scoprire:
   - **Brih (Ghiaccio)**: Spuntone di Ghiaccio, Nova di Gelo, Tormenta, Armatura di Ghiaccio
   - **Combinati**: Esplosione Elementale, Armonia Elementale
 - **Effetti di stato**: Bruciatura, Congelamento, Armatura, Rigenerazione
-- **Sistema di particelle** per effetti visivi
+- **Sistema di particelle** per effetti visivi avanzati
 - **Calcolo del danno** con resistenze e debolezze elementali
+
+### Sistema di Progressione
+- **Alberi delle abilità** per personalizzare il personaggio:
+  - **Maestria del Fah**: Potenzia gli attacchi di fuoco
+  - **Maestria del Brih**: Potenzia gli attacchi di ghiaccio
+  - **Maestria Combinata**: Sblocca potenti attacchi elementali combinati
+  - **Maestria Fisica**: Migliora le statistiche base del personaggio
+- **Sistema di livelli** con punti esperienza e statistiche crescenti
+- **Abilità sbloccabili** con requisiti di livello
+- **Potenziamenti permanenti** attraverso oggetti speciali
+
+### Effetti Visivi Avanzati
+- **Sistema di particelle** per effetti di magia, ambiente e stato
+- **Effetti di post-processing** come bloom, aberrazione cromatica e vignettatura
+- **Effetti ambientali** come pioggia, neve, nebbia e lucciole
+- **Effetti di transizione** tra livelli e scene
+- **Effetti di impatto** per attacchi e abilità
+- **Shader personalizzati** per effetti speciali
 
 ### Sistema di Inventario
 - **Raccolta di oggetti** durante l'esplorazione
@@ -77,6 +96,15 @@ Durante la sua avventura, Aurora dovrà scoprire:
 - **Chat in-game**: Comunica con altri giocatori
 - **Sincronizzazione** di posizioni, attacchi e stato del gioco
 
+### Editor di Livelli
+- **Interfaccia intuitiva** per creare e modificare livelli
+- **Palette di tile** per terreno, muri e decorazioni
+- **Posizionamento di oggetti** come nemici, NPC e trigger
+- **Proprietà personalizzabili** per ogni elemento
+- **Esportazione e importazione** di livelli in formato JSON
+- **Test in tempo reale** dei livelli creati
+- **Cronologia delle azioni** con annulla/ripeti
+
 ### Grafica e Audio
 - **Sprite dettagliati** per personaggi, nemici e NPC
 - **Effetti visivi** per attacchi e abilità
@@ -100,6 +128,7 @@ mindworld-game-jam/
 ├── game/
 │   ├── assets/       # Risorse grafiche, audio e dati
 │   │   ├── data/     # File JSON per livelli, personaggi, attacchi, oggetti e missioni
+│   │   │   └── levels/  # Livelli predefiniti del gioco
 │   │   ├── images/   # Sprite e immagini
 │   │   └── audio/    # Musica ed effetti sonori
 │   ├── css/          # Fogli di stile
@@ -108,10 +137,14 @@ mindworld-game-jam/
 │   │   ├── quest.js          # Sistema di missioni
 │   │   ├── combat_system.js  # Sistema di combattimento avanzato
 │   │   ├── level.js          # Sistema di livelli
+│   │   ├── level_editor.js   # Editor di livelli
+│   │   ├── effects.js        # Sistema di effetti visivi avanzati
+│   │   ├── progression.js    # Sistema di progressione del personaggio
 │   │   ├── multiplayer.js    # Sistema multiplayer
 │   │   └── ui.js             # Interfaccia utente migliorata
-│   ├── test.html     # File di test per le nuove funzionalità
-│   └── index.html    # File principale del gioco
+│   ├── level_editor.html  # Editor di livelli
+│   ├── test.html         # File di test per le nuove funzionalità
+│   └── index.html        # File principale del gioco
 ├── src/
 │   ├── characters/   # Definizioni dei personaggi
 │   ├── world/        # Descrizioni del mondo di gioco
@@ -139,13 +172,20 @@ Per testare le nuove funzionalità (inventario, missioni, interfaccia utente mig
 2. Segui le istruzioni sullo schermo per interagire con i vari elementi
 3. Esplora le diverse schermate e funzionalità
 
+## Editor di Livelli
+Per utilizzare l'editor di livelli:
+1. Apri il file `game/level_editor.html` in un browser web
+2. Usa gli strumenti nella barra laterale per creare e modificare livelli
+3. Salva i tuoi livelli in formato JSON
+4. Importa i livelli nel gioco per giocarci
+
 ## Sviluppo Futuro
 - Implementazione completa di tutti i livelli
 - Aggiunta di più nemici e boss
 - Espansione del sistema di missioni
 - Miglioramento del sistema di crafting
-- Editor di livelli
 - Modalità storia completa
+- Supporto per dispositivi mobili
 
 ## Licenza
 
