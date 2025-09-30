@@ -1,0 +1,67 @@
+{
+  "name": "Villaggio Fluttuante",
+  "width": 50,
+  "height": 50,
+  "tileSize": 32,
+  "background": "#87CEEB",
+  "layers": {
+    "ground": [
+      [/* Array di tile per la riga 0 */],
+      [/* Array di tile per la riga 1 */]
+      /* ... altre righe ... */
+    ],
+    "walls": [
+      [/* Array di tile per la riga 0 */],
+      [/* Array di tile per la riga 1 */]
+      /* ... altre righe ... */
+    ],
+    "decoration": [
+      [/* Array di tile per la riga 0 */],
+      [/* Array di tile per la riga 1 */]
+      /* ... altre righe ... */
+    ],
+    "objects": [
+      {
+        "id": "npc_elian",
+        "name": "Maestro Elian",
+        "x": 800,
+        "y": 600,
+        "width": 32,
+        "height": 48,
+        "type": "npc",
+        "properties": {
+          "dialogues": [
+            { "id": "greeting", "text": "Benvenuta, Aurora. Ti stavo aspettando." },
+            { "id": "quest", "text": "Devi trovare tuo fratello Leo. Ti aiuterò nel tuo viaggio." }
+          ],
+          "quests": [
+            { "id": "find_leo", "title": "Trova Leo", "description": "Trova tuo fratello Leo nella città sottostante." }
+          ]
+        }
+      },
+      {
+        "id": "portal_to_city",
+        "name": "Portale per la Città",
+        "x": 1200,
+        "y": 800,
+        "width": 64,
+        "height": 64,
+        "type": "trigger",
+        "properties": {
+          "targetLevel": "city",
+          "targetX": 200,
+          "targetY": 200
+        }
+      }
+    ]
+  },
+  "properties": {
+    "music": "village",
+    "ambience": "wind",
+    "weather": null,
+    "lighting": {
+      "ambient": { "r": 255, "g": 255, "b": 255 },
+      "directional": { "r": 255, "g": 220, "b": 180, "direction": 45 }
+    }
+  }
+}

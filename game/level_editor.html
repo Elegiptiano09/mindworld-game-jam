@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindworld - Editor di Livelli</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        
+        #editor-container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        #sidebar {
+            width: 250px;
+            background-color: #333;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        
+        #canvas-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #editor-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #000;
+        }
+        
+        .panel {
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        
+        .panel-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #666;
+            padding-bottom: 5px;
+        }
+        
+        .button {
+            background-color: #555;
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+            cursor: pointer;
+            margin: 2px;
+            padding: 5px 10px;
+        }
+        
+        .button:hover {
+            background-color: #777;
+        }
+        
+        .button.active {
+            background-color: #0066cc;
+        }
+        
+        .input-group {
+            margin-bottom: 5px;
+        }
+        
+        .input-group label {
+            display: inline-block;
+            width: 80px;
+        }
+        
+        .input-group input, .input-group select {
+            background-color: #555;
+            border: 1px solid #666;
+            border-radius: 3px;
+            color: #fff;
+            padding: 3px;
+            width: 120px;
+        }
+        
+        .palette {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .palette-item {
+            background-color: #555;
+            border: 1px solid #666;
+            border-radius: 3px;
+            cursor: pointer;
+            height: 50px;
+            position: relative;
+            width: 100%;
+        }
+        
+        .palette-item:hover {
+            border-color: #999;
+        }
+        
+        .palette-item.selected {
+            border-color: #0066cc;
+            box-shadow: 0 0 5px #0066cc;
+        }
+        
+        .palette-item-name {
+            background-color: rgba(0, 0, 0, 0.7);
+            bottom: 0;
+            font-size: 10px;
+            left: 0;
+            padding: 2px;
+            position: absolute;
+            right: 0;
+            text-align: center;
+        }
+        
+        .toolbar {
+            background-color: #333;
+            border-bottom: 1px solid #666;
+            padding: 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+        
+        .statusbar {
+            background-color: #333;
+            border-top: 1px solid #666;
+            bottom: 0;
+            font-size: 12px;
+            left: 0;
+            padding: 5px;
+            position: absolute;
+            right: 0;
+            z-index: 10;
+        }
+        
+        .modal {
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            height: 100%;
+            left: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .modal-content {
+            background-color: #333;
+            border-radius: 5px;
+            margin: 10% auto;
+            max-width: 500px;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .modal-close {
+            color: #aaa;
+            cursor: pointer;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 10px;
+            top: 5px;
+        }
+        
+        .modal-close:hover {
+            color: #fff;
+        }
+        
+        .tab-container {
+            margin-top: 10px;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            margin-bottom: 5px;
+        }
+        
+        .tab-button {
+            background-color: #555;
+            border: 1px solid #666;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            flex: 1;
+            padding: 5px;
+            text-align: center;
+        }
+        
+        .tab-button.active {
+            background-color: #444;
+        }
+        
+        .tab-content {
+            background-color: #444;
+            border: 1px solid #666;
+            border-radius: 0 0 5px 5px;
+            display: none;
+            padding: 10px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="editor-container">
+        <div id="sidebar">
+            <div class="panel">
+                <div class="panel-title">File</div>
+                <button id="new-level" class="button">Nuovo</button>
+                <button id="load-level" class="button">Carica</button>
+                <button id="save-level" class="button">Salva</button>
+                <button id="export-level" class="button">Esporta</button>
+                <button id="import-level" class="button">Importa</button>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-title">Modifica</div>
+                <button id="undo" class="button">Annulla</button>
+                <button id="redo" class="button">Ripeti</button>
+                <button id="resize-level" class="button">Ridimensiona</button>
+                <button id="level-properties" class="button">Proprietà</button>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-title">Modalità</div>
+                <button id="mode-tile" class="button active">Tile</button>
+                <button id="mode-object" class="button">Oggetto</button>
+                <button id="mode-enemy" class="button">Nemico</button>
+                <button id="mode-npc" class="button">NPC</button>
+                <button id="mode-trigger" class="button">Trigger</button>
+                <button id="mode-decoration" class="button">Decorazione</button>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-title">Layer</div>
+                <button id="layer-ground" class="button active">Terreno</button>
+                <button id="layer-walls" class="button">Muri</button>
+                <button id="layer-decoration" class="button">Decorazioni</button>
+                <button id="layer-objects" class="button">Oggetti</button>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-title">Strumenti</div>
+                <button id="tool-pencil" class="button active">Matita</button>
+                <button id="tool-fill" class="button">Riempimento</button>
+                <button id="tool-rectangle" class="button">Rettangolo</button>
+                <button id="tool-select" class="button">Selezione</button>
+                <button id="tool-erase" class="button">Cancella</button>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-title">Palette</div>
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <div id="tab-tiles" class="tab-button active">Tile</div>
+                        <div id="tab-objects" class="tab-button">Oggetti</div>
+                        <div id="tab-entities" class="tab-button">Entità</div>
+                    </div>
+                    <div id="tab-content-tiles" class="tab-content active">
+                        <div class="palette" id="tile-palette">
+                            <!-- Tile palette items will be added here -->
+                        </div>
+                    </div>
+                    <div id="tab-content-objects" class="tab-content">
+                        <div class="palette" id="object-palette">
+                            <!-- Object palette items will be added here -->
+                        </div>
+                    </div>
+                    <div id="tab-content-entities" class="tab-content">
+                        <div class="palette" id="entity-palette">
+                            <!-- Entity palette items will be added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="canvas-container">
+            <div class="toolbar">
+                <button id="play-test" class="button">Test</button>
+                <button id="toggle-grid" class="button active">Griglia</button>
+                <button id="toggle-collision" class="button">Collisioni</button>
+                <button id="center-view" class="button">Centra</button>
+                <span style="margin-left: 20px;">Zoom:</span>
+                <button id="zoom-out" class="button">-</button>
+                <span id="zoom-level">100%</span>
+                <button id="zoom-in" class="button">+</button>
+            </div>
+            
+            <canvas id="editor-canvas"></canvas>
+            
+            <div class="statusbar">
+                <span id="position-info">X: 0, Y: 0</span>
+                <span style="margin-left: 20px;">Tile: <span id="tile-info">Nessuna</span></span>
+                <span style="margin-left: 20px;">Dimensioni: <span id="level-info">0x0</span></span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modals -->
+    <div id="new-level-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Nuovo Livello</h2>
+            <div class="input-group">
+                <label for="new-level-name">Nome:</label>
+                <input type="text" id="new-level-name" value="Nuovo Livello">
+            </div>
+            <div class="input-group">
+                <label for="new-level-width">Larghezza:</label>
+                <input type="number" id="new-level-width" value="50" min="1" max="500">
+            </div>
+            <div class="input-group">
+                <label for="new-level-height">Altezza:</label>
+                <input type="number" id="new-level-height" value="50" min="1" max="500">
+            </div>
+            <div class="input-group">
+                <label for="new-level-tile-size">Dim. Tile:</label>
+                <input type="number" id="new-level-tile-size" value="32" min="16" max="64">
+            </div>
+            <div class="input-group">
+                <label for="new-level-background">Sfondo:</label>
+                <input type="color" id="new-level-background" value="#000000">
+            </div>
+            <div style="margin-top: 10px; text-align: right;">
+                <button id="new-level-cancel" class="button">Annulla</button>
+                <button id="new-level-create" class="button">Crea</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="resize-level-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Ridimensiona Livello</h2>
+            <div class="input-group">
+                <label for="resize-level-width">Larghezza:</label>
+                <input type="number" id="resize-level-width" value="50" min="1" max="500">
+            </div>
+            <div class="input-group">
+                <label for="resize-level-height">Altezza:</label>
+                <input type="number" id="resize-level-height" value="50" min="1" max="500">
+            </div>
+            <div class="input-group">
+                <label for="resize-level-anchor">Ancoraggio:</label>
+                <select id="resize-level-anchor">
+                    <option value="nw">Alto-Sinistra</option>
+                    <option value="n">Alto-Centro</option>
+                    <option value="ne">Alto-Destra</option>
+                    <option value="w">Centro-Sinistra</option>
+                    <option value="c" selected>Centro</option>
+                    <option value="e">Centro-Destra</option>
+                    <option value="sw">Basso-Sinistra</option>
+                    <option value="s">Basso-Centro</option>
+                    <option value="se">Basso-Destra</option>
+                </select>
+            </div>
+            <div style="margin-top: 10px; text-align: right;">
+                <button id="resize-level-cancel" class="button">Annulla</button>
+                <button id="resize-level-apply" class="button">Applica</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="level-properties-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Proprietà Livello</h2>
+            <div class="input-group">
+                <label for="level-name">Nome:</label>
+                <input type="text" id="level-name">
+            </div>
+            <div class="input-group">
+                <label for="level-background">Sfondo:</label>
+                <input type="color" id="level-background">
+            </div>
+            <div class="input-group">
+                <label for="level-music">Musica:</label>
+                <select id="level-music">
+                    <option value="">Nessuna</option>
+                    <option value="village">Villaggio</option>
+                    <option value="city">Città</option>
+                    <option value="dungeon">Dungeon</option>
+                    <option value="boss">Boss</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="level-ambience">Ambiente:</label>
+                <select id="level-ambience">
+                    <option value="">Nessuno</option>
+                    <option value="forest">Foresta</option>
+                    <option value="cave">Caverna</option>
+                    <option value="water">Acqua</option>
+                    <option value="wind">Vento</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="level-weather">Meteo:</label>
+                <select id="level-weather">
+                    <option value="">Nessuno</option>
+                    <option value="rain">Pioggia</option>
+                    <option value="snow">Neve</option>
+                    <option value="fog">Nebbia</option>
+                    <option value="storm">Tempesta</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="level-ambient-light">Luce Amb.:</label>
+                <input type="color" id="level-ambient-light" value="#ffffff">
+            </div>
+            <div style="margin-top: 10px; text-align: right;">
+                <button id="level-properties-cancel" class="button">Annulla</button>
+                <button id="level-properties-apply" class="button">Applica</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="object-properties-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Proprietà Oggetto</h2>
+            <div id="object-properties-content">
+                <!-- Object properties will be added here dynamically -->
+            </div>
+            <div style="margin-top: 10px; text-align: right;">
+                <button id="object-properties-cancel" class="button">Annulla</button>
+                <button id="object-properties-apply" class="button">Applica</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/assets.js"></script>
+    <script src="js/level_editor.js"></script>
+    <script>
+        // Inizializza l'editor di livelli
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ottieni il canvas
+            const canvas = document.getElementById('editor-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Imposta le dimensioni del canvas
+            function resizeCanvas() {
+                const container = document.getElementById('canvas-container');
+                canvas.width = container.clientWidth;
+                canvas.height = container.clientHeight;
+            }
+            
+            // Ridimensiona il canvas quando la finestra viene ridimensionata
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            
+            // Crea un oggetto Game fittizio per l'editor
+            const game = {
+                canvas: canvas,
+                ctx: ctx,
+                width: canvas.width,
+                height: canvas.height,
+                assets: {
+                    // Gli asset verranno caricati dall'editor
+                }
+            };
+            
+            // Crea l'editor di livelli
+            const editor = new LevelEditor(game);
+            
+            // Attiva l'editor
+            editor.activate();
+            
+            // Loop di aggiornamento
+            let lastTime = 0;
+            
+            function gameLoop(timestamp) {
+                // Calcola il delta time
+                const deltaTime = (timestamp - lastTime) / 1000;
+                lastTime = timestamp;
+                
+                // Aggiorna l'editor
+                editor.update(deltaTime);
+                
+                // Pulisci il canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Disegna l'editor
+                editor.draw(ctx);
+                
+                // Richiedi il prossimo frame
+                requestAnimationFrame(gameLoop);
+            }
+            
+            // Avvia il loop di gioco
+            requestAnimationFrame(gameLoop);
+            
+            // Implementa gli eventi dell'interfaccia utente
+            // Questa è una versione base, da espandere con la gestione completa degli eventi
+            
+            // Gestione delle tab
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Rimuovi la classe active da tutti i pulsanti
+                    document.querySelectorAll('.tab-button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Aggiungi la classe active al pulsante cliccato
+                    this.classList.add('active');
+                    
+                    // Nascondi tutti i contenuti delle tab
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Mostra il contenuto della tab selezionata
+                    const tabId = this.id.replace('tab-', 'tab-content-');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Gestione delle modalità
+            document.querySelectorAll('[id^="mode-"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Rimuovi la classe active da tutti i pulsanti
+                    document.querySelectorAll('[id^="mode-"]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Aggiungi la classe active al pulsante cliccato
+                    this.classList.add('active');
+                    
+                    // Imposta la modalità
+                    const mode = this.id.replace('mode-', '');
+                    editor.mode = mode;
+                });
+            });
+            
+            // Gestione dei layer
+            document.querySelectorAll('[id^="layer-"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Rimuovi la classe active da tutti i pulsanti
+                    document.querySelectorAll('[id^="layer-"]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Aggiungi la classe active al pulsante cliccato
+                    this.classList.add('active');
+                    
+                    // Imposta il layer
+                    const layer = this.id.replace('layer-', '');
+                    editor.selectedLayer = layer;
+                });
+            });
+            
+            // Gestione degli strumenti
+            document.querySelectorAll('[id^="tool-"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Rimuovi la classe active da tutti i pulsanti
+                    document.querySelectorAll('[id^="tool-"]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Aggiungi la classe active al pulsante cliccato
+                    this.classList.add('active');
+                    
+                    // Imposta lo strumento
+                    const tool = this.id.replace('tool-', '');
+                    editor.tool = tool;
+                });
+            });
+            
+            // Gestione dello zoom
+            document.getElementById('zoom-in').addEventListener('click', function() {
+                editor.zoom = Math.min(editor.zoom * 1.2, 5.0);
+                document.getElementById('zoom-level').textContent = Math.round(editor.zoom * 100) + '%';
+            });
+            
+            document.getElementById('zoom-out').addEventListener('click', function() {
+                editor.zoom = Math.max(editor.zoom / 1.2, 0.1);
+                document.getElementById('zoom-level').textContent = Math.round(editor.zoom * 100) + '%';
+            });
+            
+            // Gestione della griglia
+            document.getElementById('toggle-grid').addEventListener('click', function() {
+                this.classList.toggle('active');
+                editor.showGrid = this.classList.contains('active');
+            });
+            
+            // Gestione delle collisioni
+            document.getElementById('toggle-collision').addEventListener('click', function() {
+                this.classList.toggle('active');
+                editor.showCollision = this.classList.contains('active');
+            });
+            
+            // Gestione del nuovo livello
+            document.getElementById('new-level').addEventListener('click', function() {
+                document.getElementById('new-level-modal').style.display = 'block';
+            });
+            
+            document.getElementById('new-level-create').addEventListener('click', function() {
+                const name = document.getElementById('new-level-name').value;
+                const width = parseInt(document.getElementById('new-level-width').value);
+                const height = parseInt(document.getElementById('new-level-height').value);
+                const tileSize = parseInt(document.getElementById('new-level-tile-size').value);
+                const background = document.getElementById('new-level-background').value;
+                
+                editor.newLevel({
+                    name: name,
+                    width: width,
+                    height: height,
+                    tileSize: tileSize,
+                    background: background
+                });
+                
+                document.getElementById('new-level-modal').style.display = 'none';
+                
+                // Aggiorna le informazioni del livello
+                document.getElementById('level-info').textContent = width + 'x' + height;
+            });
+            
+            document.getElementById('new-level-cancel').addEventListener('click', function() {
+                document.getElementById('new-level-modal').style.display = 'none';
+            });
+            
+            // Gestione del ridimensionamento del livello
+            document.getElementById('resize-level').addEventListener('click', function() {
+                if (!editor.currentLevel) return;
+                
+                document.getElementById('resize-level-width').value = editor.currentLevel.width;
+                document.getElementById('resize-level-height').value = editor.currentLevel.height;
+                document.getElementById('resize-level-modal').style.display = 'block';
+            });
+            
+            document.getElementById('resize-level-apply').addEventListener('click', function() {
+                const width = parseInt(document.getElementById('resize-level-width').value);
+                const height = parseInt(document.getElementById('resize-level-height').value);
+                const anchor = document.getElementById('resize-level-anchor').value;
+                
+                editor.resizeLevel(width, height, anchor);
+                
+                document.getElementById('resize-level-modal').style.display = 'none';
+                
+                // Aggiorna le informazioni del livello
+                document.getElementById('level-info').textContent = width + 'x' + height;
+            });
+            
+            document.getElementById('resize-level-cancel').addEventListener('click', function() {
+                document.getElementById('resize-level-modal').style.display = 'none';
+            });
+            
+            // Gestione delle proprietà del livello
+            document.getElementById('level-properties').addEventListener('click', function() {
+                if (!editor.currentLevel) return;
+                
+                document.getElementById('level-name').value = editor.currentLevel.name;
+                document.getElementById('level-background').value = editor.currentLevel.background;
+                document.getElementById('level-music').value = editor.currentLevel.properties.music || '';
+                document.getElementById('level-ambience').value = editor.currentLevel.properties.ambience || '';
+                document.getElementById('level-weather').value = editor.currentLevel.properties.weather || '';
+                document.getElementById('level-ambient-light').value = rgbToHex(editor.currentLevel.properties.lighting.ambient);
+                
+                document.getElementById('level-properties-modal').style.display = 'block';
+            });
+            
+            document.getElementById('level-properties-apply').addEventListener('click', function() {
+                editor.currentLevel.name = document.getElementById('level-name').value;
+                editor.currentLevel.background = document.getElementById('level-background').value;
+                editor.currentLevel.properties.music = document.getElementById('level-music').value;
+                editor.currentLevel.properties.ambience = document.getElementById('level-ambience').value;
+                editor.currentLevel.properties.weather = document.getElementById('level-weather').value;
+                editor.currentLevel.properties.lighting.ambient = hexToRgb(document.getElementById('level-ambient-light').value);
+                
+                document.getElementById('level-properties-modal').style.display = 'none';
+            });
+            
+            document.getElementById('level-properties-cancel').addEventListener('click', function() {
+                document.getElementById('level-properties-modal').style.display = 'none';
+            });
+            
+            // Gestione dell'annullamento e della ripetizione
+            document.getElementById('undo').addEventListener('click', function() {
+                editor.undo();
+            });
+            
+            document.getElementById('redo').addEventListener('click', function() {
+                editor.redo();
+            });
+            
+            // Gestione del salvataggio e del caricamento
+            document.getElementById('save-level').addEventListener('click', function() {
+                if (!editor.currentLevel) return;
+                
+                const level = editor.saveLevel();
+                const levelJson = editor.exportLevel();
+                
+                // Salva il livello nel localStorage
+                localStorage.setItem('mindworld_level_' + level.name, levelJson);
+                
+                alert('Livello salvato con successo!');
+            });
+            
+            document.getElementById('load-level').addEventListener('click', function() {
+                // Ottieni la lista dei livelli salvati
+                const levels = [];
+                
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    
+                    if (key.startsWith('mindworld_level_')) {
+                        levels.push(key.replace('mindworld_level_', ''));
+                    }
+                }
+                
+                if (levels.length === 0) {
+                    alert('Nessun livello salvato!');
+                    return;
+                }
+                
+                // Chiedi all'utente quale livello caricare
+                const levelName = prompt('Seleziona un livello da caricare:\n\n' + levels.join('\n'));
+                
+                if (!levelName) return;
+                
+                // Carica il livello
+                const levelJson = localStorage.getItem('mindworld_level_' + levelName);
+                
+                if (!levelJson) {
+                    alert('Livello non trovato!');
+                    return;
+                }
+                
+                const level = editor.importLevel(levelJson);
+                
+                if (level) {
+                    // Aggiorna le informazioni del livello
+                    document.getElementById('level-info').textContent = level.width + 'x' + level.height;
+                    
+                    alert('Livello caricato con successo!');
+                }
+            });
+            
+            document.getElementById('export-level').addEventListener('click', function() {
+                if (!editor.currentLevel) return;
+                
+                const levelJson = editor.exportLevel();
+                
+                // Crea un elemento di download
+                const element = document.createElement('a');
+                element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(levelJson));
+                element.setAttribute('download', editor.currentLevel.name + '.json');
+                
+                element.style.display = 'none';
+                document.body.appendChild(element);
+                
+                element.click();
+                
+                document.body.removeChild(element);
+            });
+            
+            document.getElementById('import-level').addEventListener('click', function() {
+                // Crea un elemento di input file
+                const element = document.createElement('input');
+                element.setAttribute('type', 'file');
+                element.setAttribute('accept', '.json');
+                
+                element.style.display = 'none';
+                document.body.appendChild(element);
+                
+                element.addEventListener('change', function() {
+                    const file = element.files[0];
+                    
+                    if (!file) {
+                        document.body.removeChild(element);
+                        return;
+                    }
+                    
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        const levelJson = e.target.result;
+                        const level = editor.importLevel(levelJson);
+                        
+                        if (level) {
+                            // Aggiorna le informazioni del livello
+                            document.getElementById('level-info').textContent = level.width + 'x' + level.height;
+                            
+                            alert('Livello importato con successo!');
+                        }
+                        
+                        document.body.removeChild(element);
+                    };
+                    
+                    reader.readAsText(file);
+                });
+                
+                element.click();
+            });
+            
+            // Gestione della chiusura delle modali
+            document.querySelectorAll('.modal-close').forEach(close => {
+                close.addEventListener('click', function() {
+                    this.parentElement.parentElement.style.display = 'none';
+                });
+            });
+            
+            // Funzioni di utilità
+            function rgbToHex(rgb) {
+                return '#' + 
+                    ('0' + Math.round(rgb.r).toString(16)).slice(-2) + 
+                    ('0' + Math.round(rgb.g).toString(16)).slice(-2) + 
+                    ('0' + Math.round(rgb.b).toString(16)).slice(-2);
+            }
+            
+            function hexToRgb(hex) {
+                const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                return result ? {
+                    r: parseInt(result[1], 16),
+                    g: parseInt(result[2], 16),
+                    b: parseInt(result[3], 16)
+                } : { r: 255, g: 255, b: 255 };
+            }
+        });
+    </script>
+</body>
+</html>
