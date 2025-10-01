@@ -52,34 +52,46 @@ class AssetManager {
      */
     loadImages() {
         const imagesToLoad = {
-            // Personaggi
-            'player': 'assets/images/characters/player.jpg',
-            'npc_elian': 'assets/images/characters/npc_elian.png',
-            'npc_vex': 'assets/images/characters/npc_vex.png',
-            'npc_grim': 'assets/images/characters/npc_grim.png',
-            'npc_nyx': 'assets/images/characters/npc_nyx.gif',
-            'npc_aquos': 'assets/images/characters/npc_aquos.gif',
-            'npc_ember': 'assets/images/characters/TVGX18pFJQQY.gif',
-            'npc_frost': 'assets/images/characters/qr4N8oqEUp26.gif',
-            'npc_celeste': 'assets/images/characters/I26UI1ummFGA.jpg',
+            // Personaggi principali
+            'aurora': 'assets/images/aurora.png',
+            'leo': 'assets/images/leo.png',
+            'maestro_elian': 'assets/images/maestro_elian.png',
+            'vex': 'assets/images/vex.png',
+            'grim': 'assets/images/grim.png',
+            'dama_celeste': 'assets/images/dama_celeste.png',
+            'nyx': 'assets/images/nyx.png',
+            'protettore_aquos': 'assets/images/protettore_aquos.png',
+            'ember_fah': 'assets/images/ember_fah.png',
+            'frost_brih': 'assets/images/frost_brih.png',
+            
+            // Personaggi legacy (per compatibilità)
+            'player': 'assets/images/aurora.png',
+            'npc_elian': 'assets/images/maestro_elian.png',
+            'npc_vex': 'assets/images/vex.png',
+            'npc_grim': 'assets/images/grim.png',
+            'npc_nyx': 'assets/images/nyx.png',
+            'npc_aquos': 'assets/images/protettore_aquos.png',
+            'npc_ember': 'assets/images/ember_fah.png',
+            'npc_frost': 'assets/images/frost_brih.png',
+            'npc_celeste': 'assets/images/dama_celeste.png',
             
             // Creature
             'fah_creature': 'assets/images/characters/fah_creature.jpg',
             'brih_creature': 'assets/images/characters/brih_creature.gif',
             
             // Ambienti
-            'bg_village': 'assets/images/tiles/bg_village.jpg',
-            'bg_city': 'assets/images/tiles/bg_city.webp',
-            'bg_tower': 'assets/images/tiles/bg_village.jpg',
+            'bg_village': 'assets/images/bg_floating_village.png',
+            'bg_city': 'assets/images/bg_colorful_city.png',
+            'bg_tower': 'assets/images/bg_floating_village.png',
             
             // Tiles
             'tiles_village': 'assets/images/tiles/tiles_village.gif',
             'tiles_city': 'assets/images/tiles/tiles_city.webp',
             
             // Effetti
-            'effect_fire': 'assets/images/effects/effect_fire.jpg',
-            'effect_water': 'assets/images/effects/effect_water.png',
-            'effect_combined': 'assets/images/effects/effect_combined.jpg',
+            'effect_fire': 'assets/images/effects/fire_effect.png',
+            'effect_water': 'assets/images/effects/ice_effect.png',
+            'effect_combined': 'assets/images/effects/combined_effect.png',
             
             // UI
             'ui_dialog': 'assets/images/ui/ui_dialog.webp',
@@ -133,12 +145,30 @@ class AssetManager {
             
             // Effetti sonori
             'sfx_jump': 'assets/audio/sfx_jump.mp3',
-            'sfx_attack_fah': 'assets/audio/sfx_attack_fah.mp3',
-            'sfx_attack_brih': 'assets/audio/sfx_attack_brih.mp3',
-            'sfx_attack_combined': 'assets/audio/sfx_attack_combined.mp3',
+            'sfx_fire_dart': 'assets/audio/sfx_fire_dart.mp3',
+            'sfx_flame_wave': 'assets/audio/sfx_flame_wave.mp3',
+            'sfx_meteor': 'assets/audio/sfx_meteor.mp3',
+            'sfx_fire_shield': 'assets/audio/sfx_fire_shield.mp3',
+            'sfx_ice_shard': 'assets/audio/sfx_ice_shard.mp3',
+            'sfx_frost_nova': 'assets/audio/sfx_frost_nova.mp3',
+            'sfx_blizzard': 'assets/audio/sfx_blizzard.mp3',
+            'sfx_ice_armor': 'assets/audio/sfx_ice_armor.mp3',
+            'sfx_elemental_blast': 'assets/audio/sfx_elemental_blast.mp3',
+            'sfx_elemental_harmony': 'assets/audio/sfx_elemental_harmony.mp3',
             'sfx_hit': 'assets/audio/sfx_hit.mp3',
             'sfx_dialog': 'assets/audio/sfx_dialog.mp3',
-            'sfx_menu': 'assets/audio/sfx_menu.mp3'
+            'sfx_menu': 'assets/audio/sfx_menu.mp3',
+            'sfx_pickup': 'assets/audio/sfx_pickup.mp3',
+            'sfx_level_up': 'assets/audio/sfx_level_up.mp3',
+            
+            // Suoni ambientali
+            'ambient_wind_gentle': 'assets/audio/ambient_wind_gentle.mp3',
+            'ambient_wind_mystical': 'assets/audio/ambient_wind_mystical.mp3',
+            'ambient_city_bustling': 'assets/audio/ambient_city_bustling.mp3',
+            'ambient_tv_studio': 'assets/audio/ambient_tv_studio.mp3',
+            'ambient_water_flowing': 'assets/audio/ambient_water_flowing.mp3',
+            'ambient_mystical_chamber': 'assets/audio/ambient_mystical_chamber.mp3',
+            'ambient_peaceful_ending': 'assets/audio/ambient_peaceful_ending.mp3'
         };
         
         // Conta il numero di file audio da caricare

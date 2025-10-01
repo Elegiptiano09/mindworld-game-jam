@@ -15,6 +15,8 @@ class Game {
         this.resizeCanvas();
         
         // Sistemi di gioco
+        this.particleSystem = new ParticleSystem(this.canvas, this.ctx);
+        this.animationSystem = new AnimationSystem();
         this.world = null;
         this.ui = new UI();
         
@@ -106,10 +108,13 @@ class Game {
                 // Crea il mondo
                 this.world = new World({
                     canvas: this.canvas,
+                    ctx: this.ctx,
                     width: 2000,
                     height: 2000,
                     tileSize: 32,
-                    ui: this.ui
+                    ui: this.ui,
+                    particleSystem: this.particleSystem,
+                    animationSystem: this.animationSystem
                 });
                 
                 // Inizializza il mondo
@@ -186,10 +191,13 @@ class Game {
         // Ricrea il mondo
         this.world = new World({
             canvas: this.canvas,
+            ctx: this.ctx,
             width: 2000,
             height: 2000,
             tileSize: 32,
-            ui: this.ui
+            ui: this.ui,
+            particleSystem: this.particleSystem,
+            animationSystem: this.animationSystem
         });
         
         // Inizializza il mondo
@@ -213,6 +221,8 @@ class Game {
         // Aggiorna il gioco solo se non è in pausa
         if (!this.isPaused) {
             this.update(this.deltaTime);
+            this.particleSystem.update(this.deltaTime);
+            this.animationSystem.update(this.deltaTime);
         }
         
         // Disegna il gioco
@@ -243,6 +253,9 @@ class Game {
         if (this.world) {
             this.world.draw();
         }
+        
+        // Disegna le particelle
+        this.particleSystem.draw();
     }
 }
 
