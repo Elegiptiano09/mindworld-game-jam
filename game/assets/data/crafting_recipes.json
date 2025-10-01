@@ -1,0 +1,206 @@
+{
+  "recipes": [
+    {
+      "id": "fire_dart_enhanced",
+      "name": "Dardo di Fuoco Potenziato",
+      "description": "Un dardo di fuoco più potente creato combinando polvere di ferro e zolfo per una combustione più intensa.",
+      "type": "weapon",
+      "element": "fah",
+      "ingredients": [
+        {"item": "iron_powder", "quantity": 2},
+        {"item": "sulfur", "quantity": 1},
+        {"item": "basic_fire_dart", "quantity": 1}
+      ],
+      "result": {
+        "item": "fire_dart_enhanced",
+        "quantity": 1,
+        "stats": {
+          "damage": 45,
+          "range": 120,
+          "energy_cost": 15
+        }
+      },
+      "scientific_principle": "La combustione del ferro in presenza di zolfo genera temperature più elevate, aumentando il danno dell'attacco."
+    },
+    {
+      "id": "ice_shard_crystalline",
+      "name": "Scheggia di Ghiaccio Cristallina",
+      "description": "Una scheggia di ghiaccio ultra-resistente creata usando sale per abbassare il punto di congelamento.",
+      "type": "weapon",
+      "element": "brih",
+      "ingredients": [
+        {"item": "salt", "quantity": 1},
+        {"item": "pure_water", "quantity": 2},
+        {"item": "basic_ice_shard", "quantity": 1}
+      ],
+      "result": {
+        "item": "ice_shard_crystalline",
+        "quantity": 1,
+        "stats": {
+          "damage": 40,
+          "range": 100,
+          "energy_cost": 12,
+          "special_effect": "freeze"
+        }
+      },
+      "scientific_principle": "L'aggiunta di sale all'acqua abbassa il punto di congelamento, creando ghiaccio più denso e resistente."
+    },
+    {
+      "id": "elemental_catalyst",
+      "name": "Catalizzatore Elementale",
+      "description": "Un dispositivo che permette di combinare energie Fah e Brih per attacchi devastanti.",
+      "type": "tool",
+      "element": "combined",
+      "ingredients": [
+        {"item": "copper_wire", "quantity": 3},
+        {"item": "crystal_core", "quantity": 1},
+        {"item": "magnetic_stone", "quantity": 2}
+      ],
+      "result": {
+        "item": "elemental_catalyst",
+        "quantity": 1,
+        "stats": {
+          "enables_combined_attacks": true,
+          "energy_efficiency": 20
+        }
+      },
+      "scientific_principle": "Il rame conduce l'energia, il cristallo la amplifica e la pietra magnetica stabilizza le forze opposte."
+    },
+    {
+      "id": "smoke_bomb",
+      "name": "Bomba Fumogena",
+      "description": "Una bomba che crea una cortina di fumo per nascondersi o confondere i nemici.",
+      "type": "utility",
+      "element": "neutral",
+      "ingredients": [
+        {"item": "potassium_nitrate", "quantity": 1},
+        {"item": "charcoal", "quantity": 2},
+        {"item": "sugar", "quantity": 1}
+      ],
+      "result": {
+        "item": "smoke_bomb",
+        "quantity": 3,
+        "stats": {
+          "duration": 10,
+          "area_effect": 150
+        }
+      },
+      "scientific_principle": "La combustione lenta di nitrato di potassio, carbone e zucchero produce denso fumo bianco."
+    },
+    {
+      "id": "energy_drink",
+      "name": "Bevanda Energetica",
+      "description": "Una bevanda che ripristina rapidamente l'energia elementale usando elettroliti naturali.",
+      "type": "consumable",
+      "element": "neutral",
+      "ingredients": [
+        {"item": "citrus_fruit", "quantity": 2},
+        {"item": "honey", "quantity": 1},
+        {"item": "salt", "quantity": 1}
+      ],
+      "result": {
+        "item": "energy_drink",
+        "quantity": 2,
+        "stats": {
+          "energy_restore": 50,
+          "duration": 5
+        }
+      },
+      "scientific_principle": "Gli elettroliti naturali e gli zuccheri semplici accelerano il recupero energetico del corpo."
+    },
+    {
+      "id": "thermal_grenade",
+      "name": "Granata Termica",
+      "description": "Un dispositivo che genera calore estremo o freddo intenso a seconda della configurazione.",
+      "type": "weapon",
+      "element": "combined",
+      "ingredients": [
+        {"item": "thermite_powder", "quantity": 2},
+        {"item": "liquid_nitrogen_capsule", "quantity": 1},
+        {"item": "timer_mechanism", "quantity": 1}
+      ],
+      "result": {
+        "item": "thermal_grenade",
+        "quantity": 1,
+        "stats": {
+          "damage": 80,
+          "area_effect": 200,
+          "energy_cost": 30
+        }
+      },
+      "scientific_principle": "La termite genera calore estremo mentre l'azoto liquido crea freddo intenso, creando shock termico."
+    }
+  ],
+  "materials": [
+    {
+      "id": "iron_powder",
+      "name": "Polvere di Ferro",
+      "description": "Ferro finemente macinato, ottimo per reazioni di combustione.",
+      "rarity": "common",
+      "locations": ["city_ruins", "abandoned_factory"]
+    },
+    {
+      "id": "sulfur",
+      "name": "Zolfo",
+      "description": "Elemento chimico che intensifica la combustione.",
+      "rarity": "uncommon",
+      "locations": ["volcanic_area", "chemical_lab"]
+    },
+    {
+      "id": "salt",
+      "name": "Sale",
+      "description": "Cloruro di sodio, utile per abbassare il punto di congelamento.",
+      "rarity": "common",
+      "locations": ["kitchen", "salt_mine", "dried_lake"]
+    },
+    {
+      "id": "pure_water",
+      "name": "Acqua Pura",
+      "description": "Acqua distillata, ideale per esperimenti scientifici.",
+      "rarity": "common",
+      "locations": ["water_tower", "purification_plant"]
+    },
+    {
+      "id": "copper_wire",
+      "name": "Filo di Rame",
+      "description": "Conduttore elettrico eccellente per dispositivi energetici.",
+      "rarity": "uncommon",
+      "locations": ["electronics_shop", "power_station"]
+    },
+    {
+      "id": "crystal_core",
+      "name": "Nucleo Cristallino",
+      "description": "Cristallo che amplifica l'energia elementale.",
+      "rarity": "rare",
+      "locations": ["crystal_cave", "dama_celeste_lab"]
+    },
+    {
+      "id": "magnetic_stone",
+      "name": "Pietra Magnetica",
+      "description": "Minerale naturalmente magnetico che stabilizza le energie.",
+      "rarity": "uncommon",
+      "locations": ["mountain_peak", "magnetic_field_area"]
+    },
+    {
+      "id": "potassium_nitrate",
+      "name": "Nitrato di Potassio",
+      "description": "Composto chimico usato per reazioni esplosive controllate.",
+      "rarity": "rare",
+      "locations": ["chemistry_lab", "fertilizer_plant"]
+    },
+    {
+      "id": "charcoal",
+      "name": "Carbone",
+      "description": "Combustibile solido per reazioni chimiche.",
+      "rarity": "common",
+      "locations": ["burned_forest", "old_forge"]
+    },
+    {
+      "id": "sugar",
+      "name": "Zucchero",
+      "description": "Carboidrato semplice che brucia facilmente.",
+      "rarity": "common",
+      "locations": ["abandoned_store", "sugar_factory"]
+    }
+  ]
+}

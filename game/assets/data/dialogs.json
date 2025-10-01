@@ -2,44 +2,35 @@
   "elian": {
     "rootNode": {
       "character": "elian",
-      "text": "Aurora! Finalmente sei qui. È passato un anno da quando il villaggio si è sollevato, lasciando tuo fratello Leo e gli altri quaggiù.",
+      "text": "Aurora! È passato un anno da quando la Dama Celeste ha sollevato il nostro villaggio con un esperimento scientifico fallito. Tuo fratello Leo e molti altri sono rimasti quaggiù.",
       "choices": [
         {
-          "text": "Maestro Elian, cosa è successo esattamente un anno fa?",
+          "text": "Un esperimento scientifico? Cosa è successo esattamente?",
           "nextNode": {
             "character": "elian",
-            "text": "La Dama Celeste, colei che governa questa città, ha usato un'antica tecnologia per separare il villaggio dalla terra. Sosteneva che la gente del villaggio avrebbe portato disordine e caos.",
+            "text": "La Dama Celeste, una scienziata brillante ma con una visione distorta, credeva di poter creare un'utopia. Il suo tentativo di purificare il mondo ha invece generato un'onda di energia che ha pietrificato alcuni e donato poteri elementali ad altri. I Fah e i Brih sono nati così.",
             "choices": [
               {
-                "text": "Dov'è mio fratello Leo ora?",
+                "text": "Quindi i Fah e i Brih non sono creature magiche, ma umani con poteri?",
                 "nextNode": {
                   "character": "elian",
-                  "text": "Leo e gli altri hanno combattuto contro la Dama Celeste per un anno intero. Sono in uno stallo. L'ultima volta che l'ho visto, era diretto verso la Torre dell'Acqua, dove si trova il Protettore Aquos.",
+                  "text": "Esatto. Hanno formato delle squadre, dei clan, per proteggersi e controllare i quartieri di questa nuova città. Leo si è unito a uno di loro, credendo nella loro causa. L'ultima volta che l'ho visto, era diretto verso la Torre dell'Acqua, un punto strategico per il controllo delle risorse.",
                   "choices": [
                     {
-                      "text": "Come posso raggiungere la Torre dell'Acqua?",
+                      "text": "Devo raggiungerlo. Come posso affrontare questi Fah e Brih?",
                       "nextNode": {
                         "character": "elian",
-                        "text": "Prima dovrai attraversare la città. Ma fai attenzione, è piena di creature Fah e Brih. Alcuni sono amichevoli, altri no. Dovrai imparare a usare la tecnologia magica di questo luogo per difenderti.",
+                        "text": "Non tutti sono ostili. Dovrai guadagnarti il loro rispetto, sia con la forza che con l'ingegno. Ho preparato per te questo bracciale. Ti permetterà di manipolare le energie elementali Fah (rossa) e Brih (blu) e, con le giuste risorse, potrai creare strumenti e armi avanzate. È la scienza che ci salverà, Aurora.",
                         "choices": [
                           {
-                            "text": "Insegnami a usare questa tecnologia magica.",
+                            "text": "Insegnami a usare questa scienza. Partirò per la Torre dell'Acqua.",
                             "nextNode": {
                               "character": "elian",
-                              "text": "Prendi questo bracciale. Ti permetterà di canalizzare l'energia Fah (rossa) e Brih (blu) per creare attacchi magici. Premi i tasti numerici da 1 a 4 per gli attacchi Fah, e da 5 a 8 per gli attacchi Brih.",
+                              "text": "Ottima scelta. Ricorda, la conoscenza è il tuo potere più grande. E non fidarti ciecamente di nessuno, nemmeno della Dama Celeste. La verità è più complessa di quanto sembri.",
                               "choices": [
                                 {
-                                  "text": "Grazie, Maestro Elian. Partirò subito per la Torre dell'Acqua.",
-                                  "nextNode": {
-                                    "character": "elian",
-                                    "text": "Buona fortuna, Aurora. Ricorda, la verità su ciò che è accaduto un anno fa potrebbe non essere quella che credi. Mantieni la mente aperta.",
-                                    "choices": [
-                                      {
-                                        "text": "Arrivederci.",
-                                        "nextNode": null
-                                      }
-                                    ]
-                                  }
+                                  "text": "Grazie, Maestro Elian. Sarò prudente.",
+                                  "nextNode": null
                                 }
                               ]
                             }
@@ -59,37 +50,37 @@
   "nyx": {
     "rootNode": {
       "character": "nyx",
-      "text": "Benvenuta al mio negozio, straniera. Non vedo facce nuove da molto tempo. Sono Nyx, commercio in armi e moduli magici.",
+      "text": "Benvenuta al mio emporio, viaggiatrice. Non vedo facce nuove da molto tempo. Sono Nyx, e qui troverai strumenti e componenti per ogni tua esigenza scientifica e di combattimento.",
       "choices": [
         {
-          "text": "Cosa sono i moduli magici?",
+          "text": "Strumenti scientifici? Cosa intendi?",
           "nextNode": {
             "character": "nyx",
-            "text": "I moduli magici si attaccano al tuo bracciale e potenziano i tuoi attacchi elementali. Alcuni aumentano il danno, altri aggiungono effetti speciali come bruciature o congelamento.",
+            "text": "Con le giuste risorse, puoi combinare questi componenti per creare armi elementali più potenti, gadget utili o persino potenziamenti per il tuo bracciale. È tutta questione di chimica e fisica applicata, ragazza.",
             "choices": [
               {
                 "text": "Hai visto un ragazzo di nome Leo? È mio fratello.",
                 "nextNode": {
                   "character": "nyx",
-                  "text": "Leo? Sì, è passato di qui qualche settimana fa. Cercava un modulo speciale per combinare energie Fah e Brih. Sembrava determinato a raggiungere la Dama Celeste.",
+                  "text": "Leo? Certo, è passato di qui. Un tipo tosto, con un forte senso di giustizia. Cercava componenti rari per potenziare la sua squadra. Sembrava determinato a sfidare l'autorità della Dama Celeste.",
                   "choices": [
                     {
                       "text": "Sai dove posso trovarlo ora?",
                       "nextNode": {
                         "character": "nyx",
-                        "text": "Si dirigeva verso la Torre dell'Acqua. Ma prima di andare lì, dovresti parlare con Vex. Conduce un quiz televisivo chiamato 'Il Tetto Semi Sconosciuto'. Sa tutto di tutti in questa città.",
+                        "text": "Si dirigeva verso la Torre dell'Acqua, ma prima ti consiglio di parlare con Vex e Grim. Sono i leader della squadra 'I Fulmini' e conducono un programma televisivo che svela i segreti della città. Hanno molte informazioni, ma non sono facili da convincere.",
                         "choices": [
                           {
-                            "text": "Dove posso trovare Vex?",
+                            "text": "Dove posso trovare Vex e Grim?",
                             "nextNode": {
                               "character": "nyx",
-                              "text": "Nel grande edificio con l'antenna al centro della città. Non puoi sbagliare. Ma ti avverto, non aiuta mai nessuno gratuitamente. Vorrà qualcosa in cambio.",
+                              "text": "Nel grande edificio con l'antenna al centro della città, il loro studio televisivo. Ma ti avverto, non aiutano mai nessuno gratuitamente. Dovrai dimostrare il tuo valore o offrire qualcosa in cambio.",
                               "choices": [
                                 {
-                                  "text": "Grazie per l'informazione. Posso vedere cosa hai in vendita?",
+                                  "text": "Capisco. Posso vedere cosa hai in vendita?",
                                   "nextNode": {
                                     "character": "nyx",
-                                    "text": "Certo! Ecco cosa ho disponibile oggi.",
+                                    "text": "Certo! Ecco la mia selezione di componenti rari e schemi di crafting.",
                                     "choices": [
                                       {
                                         "text": "Forse tornerò più tardi.",
@@ -114,3 +105,4 @@
     }
   }
 }
+

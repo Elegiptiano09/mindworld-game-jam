@@ -17,6 +17,8 @@ class Game {
         // Sistemi di gioco
         this.particleSystem = new ParticleSystem(this.canvas, this.ctx);
         this.animationSystem = new AnimationSystem();
+        this.craftingSystem = new CraftingSystem();
+        this.reputationSystem = new ReputationSystem();
         this.world = null;
         this.ui = new UI();
         
@@ -114,7 +116,9 @@ class Game {
                     tileSize: 32,
                     ui: this.ui,
                     particleSystem: this.particleSystem,
-                    animationSystem: this.animationSystem
+                    animationSystem: this.animationSystem,
+                    craftingSystem: this.craftingSystem,
+                    reputationSystem: this.reputationSystem
                 });
                 
                 // Inizializza il mondo
@@ -197,7 +201,9 @@ class Game {
             tileSize: 32,
             ui: this.ui,
             particleSystem: this.particleSystem,
-            animationSystem: this.animationSystem
+            animationSystem: this.animationSystem,
+            craftingSystem: this.craftingSystem,
+            reputationSystem: this.reputationSystem
         });
         
         // Inizializza il mondo

@@ -1,0 +1,256 @@
+{
+  "factions": [
+    {
+      "id": "lightning_squad",
+      "name": "I Fulmini",
+      "leaders": ["vex", "grim"],
+      "element_affinity": "fah",
+      "territory": "central_district",
+      "description": "Una squadra carismatica che usa il loro show televisivo per comunicare con la popolazione e sfidare l'autorità della Dama Celeste.",
+      "values": ["freedom", "truth", "entertainment"],
+      "reputation_levels": {
+        "hostile": {
+          "min": -100,
+          "max": -51,
+          "description": "Ti considerano un nemico. Attaccheranno a vista.",
+          "benefits": [],
+          "penalties": ["no_access_to_territory", "hostile_encounters"]
+        },
+        "neutral": {
+          "min": -50,
+          "max": 50,
+          "description": "Non ti conoscono abbastanza per fidarsi o diffidare.",
+          "benefits": ["basic_trading"],
+          "penalties": []
+        },
+        "friendly": {
+          "min": 51,
+          "max": 100,
+          "description": "Ti rispettano e sono disposti ad aiutarti.",
+          "benefits": ["advanced_trading", "faction_missions", "safe_passage"],
+          "penalties": []
+        },
+        "allied": {
+          "min": 101,
+          "max": 200,
+          "description": "Ti considerano un membro onorario della squadra.",
+          "benefits": ["exclusive_items", "backup_in_combat", "faction_abilities"],
+          "penalties": []
+        }
+      },
+      "missions": [
+        {
+          "id": "expose_corruption",
+          "name": "Esponi la Corruzione",
+          "description": "Raccogli prove delle attività illegali della Dama Celeste per il prossimo episodio.",
+          "reputation_reward": 25,
+          "requirements": ["evidence_documents", "witness_testimony"]
+        },
+        {
+          "id": "protect_broadcast",
+          "name": "Proteggi la Trasmissione",
+          "description": "Difendi lo studio televisivo da un attacco delle forze della Dama Celeste.",
+          "reputation_reward": 30,
+          "requirements": ["combat_victory", "no_equipment_damage"]
+        }
+      ]
+    },
+    {
+      "id": "crystal_guardians",
+      "name": "Guardiani del Cristallo",
+      "leaders": ["aquos_protector"],
+      "element_affinity": "brih",
+      "territory": "water_district",
+      "description": "Una squadra disciplinata che protegge le risorse idriche della città e mantiene l'equilibrio elementale.",
+      "values": ["balance", "protection", "wisdom"],
+      "reputation_levels": {
+        "hostile": {
+          "min": -100,
+          "max": -51,
+          "description": "Ti vedono come una minaccia all'equilibrio. Cercheranno di fermarti.",
+          "benefits": [],
+          "penalties": ["no_water_access", "elemental_weakness"]
+        },
+        "neutral": {
+          "min": -50,
+          "max": 50,
+          "description": "Ti osservano con cautela, valutando le tue intenzioni.",
+          "benefits": ["basic_water_access"],
+          "penalties": []
+        },
+        "friendly": {
+          "min": 51,
+          "max": 100,
+          "description": "Ti riconoscono come alleato dell'equilibrio.",
+          "benefits": ["purified_water", "brih_training", "elemental_resistance"],
+          "penalties": []
+        },
+        "allied": {
+          "min": 101,
+          "max": 200,
+          "description": "Ti considerano un vero guardiano dell'equilibrio.",
+          "benefits": ["crystal_weapons", "water_manipulation", "guardian_status"],
+          "penalties": []
+        }
+      },
+      "missions": [
+        {
+          "id": "purify_water_source",
+          "name": "Purifica la Fonte",
+          "description": "Rimuovi i contaminanti chimici da una fonte d'acqua importante.",
+          "reputation_reward": 20,
+          "requirements": ["purification_chemicals", "scientific_knowledge"]
+        },
+        {
+          "id": "stop_pollution",
+          "name": "Ferma l'Inquinamento",
+          "description": "Impedisci alle fabbriche della Dama Celeste di scaricare rifiuti tossici.",
+          "reputation_reward": 35,
+          "requirements": ["stealth_infiltration", "sabotage_success"]
+        }
+      ]
+    },
+    {
+      "id": "ember_clan",
+      "name": "Clan Ember",
+      "leaders": ["ember_fah"],
+      "element_affinity": "fah",
+      "territory": "industrial_district",
+      "description": "Una squadra di giovani ribelli che usa la forza del fuoco per proteggere i lavoratori e gli oppressi.",
+      "values": ["justice", "strength", "loyalty"],
+      "reputation_levels": {
+        "hostile": {
+          "min": -100,
+          "max": -51,
+          "description": "Ti vedono come un oppressore. Combatteranno con tutto il loro fuoco.",
+          "benefits": [],
+          "penalties": ["fire_attacks", "industrial_sabotage"]
+        },
+        "neutral": {
+          "min": -50,
+          "max": 50,
+          "description": "Non ti conoscono abbastanza, ma sono sospettosi.",
+          "benefits": ["basic_repairs"],
+          "penalties": []
+        },
+        "friendly": {
+          "min": 51,
+          "max": 100,
+          "description": "Ti rispettano come combattente per la giustizia.",
+          "benefits": ["weapon_upgrades", "fah_training", "worker_support"],
+          "penalties": []
+        },
+        "allied": {
+          "min": 101,
+          "max": 200,
+          "description": "Ti considerano famiglia. Combatteranno al tuo fianco.",
+          "benefits": ["flame_weapons", "clan_backup", "industrial_access"],
+          "penalties": []
+        }
+      },
+      "missions": [
+        {
+          "id": "rescue_workers",
+          "name": "Salva i Lavoratori",
+          "description": "Libera i lavoratori intrappolati in una fabbrica in fiamme.",
+          "reputation_reward": 30,
+          "requirements": ["fire_resistance", "rescue_success"]
+        },
+        {
+          "id": "destroy_oppression",
+          "name": "Distruggi l'Oppressione",
+          "description": "Elimina i robot di sorveglianza che opprimono i lavoratori.",
+          "reputation_reward": 25,
+          "requirements": ["combat_victory", "stealth_approach"]
+        }
+      ]
+    },
+    {
+      "id": "frost_brotherhood",
+      "name": "Fratellanza del Gelo",
+      "leaders": ["frost_brih"],
+      "element_affinity": "brih",
+      "territory": "research_district",
+      "description": "Una squadra di intellettuali e scienziati che usa la precisione del ghiaccio per preservare la conoscenza.",
+      "values": ["knowledge", "precision", "preservation"],
+      "reputation_levels": {
+        "hostile": {
+          "min": -100,
+          "max": -51,
+          "description": "Ti considerano un barbaro anti-intellettuale. Ti congeleranno.",
+          "benefits": [],
+          "penalties": ["no_research_access", "ice_attacks"]
+        },
+        "neutral": {
+          "min": -50,
+          "max": 50,
+          "description": "Ti valutano con occhio critico e scientifico.",
+          "benefits": ["basic_research"],
+          "penalties": []
+        },
+        "friendly": {
+          "min": 51,
+          "max": 100,
+          "description": "Ti riconoscono come persona di intelletto.",
+          "benefits": ["advanced_research", "scientific_equipment", "brih_mastery"],
+          "penalties": []
+        },
+        "allied": {
+          "min": 101,
+          "max": 200,
+          "description": "Ti considerano un collega scienziato degno di rispetto.",
+          "benefits": ["experimental_weapons", "research_collaboration", "knowledge_archive"],
+          "penalties": []
+        }
+      },
+      "missions": [
+        {
+          "id": "preserve_knowledge",
+          "name": "Preserva la Conoscenza",
+          "description": "Salva i dati scientifici da un laboratorio che sta per essere distrutto.",
+          "reputation_reward": 25,
+          "requirements": ["data_recovery", "time_limit"]
+        },
+        {
+          "id": "scientific_breakthrough",
+          "name": "Scoperta Scientifica",
+          "description": "Aiuta a completare un esperimento cruciale per contrastare la Dama Celeste.",
+          "reputation_reward": 40,
+          "requirements": ["rare_materials", "scientific_skill"]
+        }
+      ]
+    }
+  ],
+  "reputation_actions": [
+    {
+      "action": "complete_faction_mission",
+      "reputation_change": "variable",
+      "description": "Completare una missione per una fazione aumenta la reputazione con quella fazione."
+    },
+    {
+      "action": "attack_faction_member",
+      "reputation_change": -20,
+      "description": "Attaccare un membro di una fazione diminuisce drasticamente la reputazione."
+    },
+    {
+      "action": "help_in_combat",
+      "reputation_change": 10,
+      "description": "Aiutare membri di una fazione in combattimento aumenta la reputazione."
+    },
+    {
+      "action": "trade_valuable_items",
+      "reputation_change": 5,
+      "description": "Commerciare oggetti preziosi con una fazione aumenta leggermente la reputazione."
+    },
+    {
+      "action": "betray_faction_secrets",
+      "reputation_change": -50,
+      "description": "Tradire i segreti di una fazione causa una perdita massiva di reputazione."
+    },
+    {
+      "action": "craft_faction_items",
+      "reputation_change": 15,
+      "description": "Creare oggetti specifici per una fazione aumenta la reputazione."
+    }
+  ]
+}

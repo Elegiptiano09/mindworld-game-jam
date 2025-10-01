@@ -1,0 +1,112 @@
+{
+  "crafting_balance": {
+    "material_drop_rates": {
+      "iron_scrap": 0.7,
+      "wood_piece": 0.8,
+      "crystal_shard": 0.3,
+      "rare_metal": 0.1,
+      "elemental_essence": 0.2,
+      "scientific_component": 0.15
+    },
+    "crafting_success_rates": {
+      "basic_recipes": 0.95,
+      "intermediate_recipes": 0.8,
+      "advanced_recipes": 0.6,
+      "legendary_recipes": 0.3
+    },
+    "experience_gains": {
+      "successful_craft": 10,
+      "failed_craft": 2,
+      "discover_recipe": 25,
+      "scientific_breakthrough": 50
+    }
+  },
+  "reputation_balance": {
+    "action_values": {
+      "talk_to_faction_member": 1,
+      "complete_faction_mission": 15,
+      "help_in_combat": 10,
+      "trade_valuable_items": 5,
+      "craft_faction_items": 8,
+      "betray_faction": -25,
+      "attack_faction_member": -20
+    },
+    "reputation_thresholds": {
+      "hostile": -50,
+      "unfriendly": -20,
+      "neutral": 0,
+      "friendly": 25,
+      "allied": 75,
+      "revered": 150
+    },
+    "mission_rewards": {
+      "easy_mission": {
+        "reputation": 10,
+        "materials": ["iron_scrap", "wood_piece"]
+      },
+      "medium_mission": {
+        "reputation": 20,
+        "materials": ["crystal_shard", "elemental_essence"]
+      },
+      "hard_mission": {
+        "reputation": 35,
+        "materials": ["rare_metal", "scientific_component"]
+      }
+    }
+  },
+  "combat_balance": {
+    "elemental_effectiveness": {
+      "fah_vs_brih": 1.2,
+      "brih_vs_fah": 1.2,
+      "combined_bonus": 1.5
+    },
+    "energy_costs": {
+      "basic_attack": 10,
+      "advanced_attack": 25,
+      "ultimate_attack": 50,
+      "combined_attack": 40
+    },
+    "energy_regeneration": {
+      "base_rate": 5,
+      "meditation_bonus": 2,
+      "faction_bonus": 1.5
+    }
+  },
+  "progression_balance": {
+    "level_requirements": {
+      "level_2": 100,
+      "level_3": 250,
+      "level_4": 500,
+      "level_5": 1000
+    },
+    "skill_unlock_levels": {
+      "advanced_crafting": 2,
+      "faction_diplomacy": 3,
+      "elemental_mastery": 4,
+      "scientific_innovation": 5
+    }
+  },
+  "dr_stone_elements": {
+    "scientific_accuracy_bonus": 1.3,
+    "innovation_rewards": {
+      "first_discovery": 100,
+      "improvement": 50,
+      "teaching_others": 25
+    },
+    "knowledge_sharing": {
+      "reputation_bonus": 5,
+      "crafting_efficiency": 1.1
+    }
+  },
+  "wind_breaker_elements": {
+    "faction_loyalty_bonus": 1.2,
+    "territory_control": {
+      "reputation_requirement": 50,
+      "benefits": ["shop_discount", "safe_passage", "backup_in_combat"]
+    },
+    "street_credibility": {
+      "combat_bonus": 1.1,
+      "negotiation_bonus": 1.15
+    }
+  }
+}

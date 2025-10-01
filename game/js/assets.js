@@ -52,37 +52,37 @@ class AssetManager {
      */
     loadImages() {
         const imagesToLoad = {
-            // Personaggi principali
-            'aurora': 'assets/images/aurora.png',
-            'leo': 'assets/images/leo.png',
-            'maestro_elian': 'assets/images/maestro_elian.png',
-            'vex': 'assets/images/vex.png',
-            'grim': 'assets/images/grim.png',
-            'dama_celeste': 'assets/images/dama_celeste.png',
-            'nyx': 'assets/images/nyx.png',
-            'protettore_aquos': 'assets/images/protettore_aquos.png',
-            'ember_fah': 'assets/images/ember_fah.png',
-            'frost_brih': 'assets/images/frost_brih.png',
+            // Personaggi principali (Revisionati)
+            'aurora': 'assets/images/aurora_revised.png',
+            'leo': 'assets/images/leo_revised.png',
+            'maestro_elian': 'assets/images/maestro_elian_revised.png',
+            'vex': 'assets/images/vex_revised.png',
+            'grim': 'assets/images/grim_revised.png',
+            'dama_celeste': 'assets/images/dama_celeste_revised.png',
+            'nyx': 'assets/images/nyx_revised.png',
+            'protettore_aquos': 'assets/images/protettore_aquos_revised.png',
+            'ember_fah': 'assets/images/ember_fah_revised.png',
+            'frost_brih': 'assets/images/frost_brih_revised.png',
             
-            // Personaggi legacy (per compatibilità)
-            'player': 'assets/images/aurora.png',
-            'npc_elian': 'assets/images/maestro_elian.png',
-            'npc_vex': 'assets/images/vex.png',
-            'npc_grim': 'assets/images/grim.png',
-            'npc_nyx': 'assets/images/nyx.png',
-            'npc_aquos': 'assets/images/protettore_aquos.png',
-            'npc_ember': 'assets/images/ember_fah.png',
-            'npc_frost': 'assets/images/frost_brih.png',
-            'npc_celeste': 'assets/images/dama_celeste.png',
+            // Personaggi legacy (per compatibilità - ora puntano ai rivisti)
+            'player': 'assets/images/aurora_revised.png',
+            'npc_elian': 'assets/images/maestro_elian_revised.png',
+            'npc_vex': 'assets/images/vex_revised.png',
+            'npc_grim': 'assets/images/grim_revised.png',
+            'npc_nyx': 'assets/images/nyx_revised.png',
+            'npc_aquos': 'assets/images/protettore_aquos_revised.png',
+            'npc_ember': 'assets/images/ember_fah_revised.png',
+            'npc_frost': 'assets/images/frost_brih_revised.png',
+            'npc_celeste': 'assets/images/dama_celeste_revised.png',
             
             // Creature
             'fah_creature': 'assets/images/characters/fah_creature.jpg',
             'brih_creature': 'assets/images/characters/brih_creature.gif',
             
-            // Ambienti
-            'bg_village': 'assets/images/bg_floating_village.png',
-            'bg_city': 'assets/images/bg_colorful_city.png',
-            'bg_tower': 'assets/images/bg_floating_village.png',
+            // Ambienti (Revisionati)
+            'bg_village': 'assets/images/bg_floating_village_revised.png',
+            'bg_city': 'assets/images/bg_colorful_city_revised.png',
+            'bg_tower': 'assets/images/bg_floating_village_revised.png',
             
             // Tiles
             'tiles_village': 'assets/images/tiles/tiles_village.gif',

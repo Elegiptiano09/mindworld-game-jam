@@ -62,6 +62,33 @@
                 <div class="inventory-grid" id="inventory-grid"></div>
                 <button id="close-inventory" class="anime-button">Chiudi</button>
             </div>
+            
+            <!-- Finestra di Crafting -->
+            <div id="crafting-window" class="hidden">
+                <h3>Laboratorio Scientifico</h3>
+                <div class="crafting-content">
+                    <div class="recipes-list" id="recipes-list"></div>
+                    <div class="crafting-details" id="crafting-details">
+                        <div id="recipe-info"></div>
+                        <div id="materials-needed"></div>
+                        <button id="craft-button" class="anime-button">Crea</button>
+                    </div>
+                </div>
+                <button id="close-crafting" class="anime-button">Chiudi</button>
+            </div>
+            
+            <!-- Finestra di Reputazione -->
+            <div id="reputation-window" class="hidden">
+                <h3>Relazioni con le Squadre</h3>
+                <div class="reputation-content">
+                    <div class="factions-list" id="factions-list"></div>
+                    <div class="faction-details" id="faction-details">
+                        <div id="faction-info"></div>
+                        <div id="faction-missions"></div>
+                    </div>
+                </div>
+                <button id="close-reputation" class="anime-button">Chiudi</button>
+            </div>
         </div>
         <div id="loading-screen">
             <div class="loading-content">
@@ -111,6 +138,8 @@
     <script src="js/assets.js"></script>
     <script src="js/particle_system.js"></script>
     <script src="js/animation_system.js"></script>
+    <script src="js/crafting_system.js"></script>
+    <script src="js/reputation_system.js"></script>
     <script src="js/character.js"></script>
     <script src="js/player.js"></script>
     <script src="js/combat.js"></script>
