@@ -56,3 +56,34 @@ Il viaggio di Aurora per trovare suo fratello Leo la porta a scontrarsi con ques
 ## Aggiornamento Narrativa e Dialoghi
 
 Il file `mindworld-game-jam/game/assets/data/dialogs.json` è stato aggiornato per riflettere la nuova trama. I dialoghi iniziali con il Maestro Elian e Nyx sono stati riscritti per introdurre il concetto dell'esperimento scientifico della Dama Celeste, la natura dei Fah e Brih come umani con poteri elementali e l'importanza del crafting e della reputazione con le squadre. Leo è ora parte di una squadra e la sua ricerca è legata alla sfida all'autorità della Dama Celeste.
+
+
+## 4. Nuovi Personaggi e Sviluppi Narrativi Aggiuntivi
+
+Per arricchire ulteriormente la storia e le dinamiche di gioco, introduciamo i seguenti nuovi personaggi e sviluppi narrativi:
+
+### Nuovi Personaggi
+
+1.  **Kaito (Il Ricercatore Errante)**:
+    *   **Ispirazione**: Dr. Stone (esploratore/scienziato)
+    *   **Ruolo**: Un giovane e brillante ricercatore che viaggia tra le rovine del vecchio mondo e le zone selvagge di Cromopoli, cercando antiche tecnologie e formule scientifiche. È neutrale rispetto alle fazioni, ma è disposto a condividere le sue scoperte con chi dimostra un genuino interesse per la scienza e la ricostruzione. Potrebbe offrire ad Aurora missioni di recupero di reperti o di decifrazione di antichi schemi.
+    *   **Design**: Abiti pratici da esploratore, zaino pieno di strumenti, occhiali da scienziato e un taccuino sempre a portata di mano. Ha un aspetto un po' trasandato ma un'espressione acuta e curiosa.
+
+2.  **Ryu (Il Capo Ribelle)**:
+    *   **Ispirazione**: Wind Breaker (leader di gang/protettore)
+    *   **Ruolo**: Il carismatico e temuto leader di una fazione minore, i "Ghost Wolves", che opera nelle zone più desolate e pericolose di Cromopoli. Ryu è un ex membro di una delle squadre principali, ma si è ribellato contro le loro regole, ritenendole troppo compromesse con il sistema della Dama Celeste. È un combattente eccezionale e un maestro della guerriglia urbana. Potrebbe offrire ad Aurora missioni di sabotaggio contro la Dama Celeste o di protezione dei civili oppressi.
+    *   **Design**: Abiti scuri e mimetici, cicatrici sul viso, sguardo intenso e un'aura di pericolo ma anche di profonda lealtà verso i suoi. Ha un'arma distintiva, magari un bastone o una catena modificata.
+
+3.  **Professoressa Hana (L'Etica della Scienza)**:
+    *   **Ispirazione**: Dr. Stone (scienziata con coscienza)
+    *   **Ruolo**: Una scienziata anziana e rispettata, ex mentore della Dama Celeste e del Maestro Elian. Si è ritirata in un laboratorio segreto ad Altavista dopo l'esperimento fallito, sentendosi responsabile delle conseguenze. Rappresenta la coscienza etica della scienza e potrebbe guidare Aurora verso una comprensione più profonda delle implicazioni morali delle scoperte scientifiche. Offrirà missioni che richiedono soluzioni non violente o la ricerca di antidoti/cure.
+    *   **Design**: Aspetto saggio e gentile, abiti da laboratorio puliti ma un po' datati, capelli raccolti e uno sguardo pensieroso. Porta sempre con sé un piccolo dispositivo olografico per proiettare dati e schemi.
+
+### Sviluppi Narrativi Aggiuntivi
+
+*   **Il Segreto della Pietrificazione**: La Dama Celeste non ha solo causato l'esperimento che ha creato i Fah e i Brih, ma è anche in possesso di una tecnologia o di una conoscenza che potrebbe invertire parzialmente o totalmente la pietrificazione del mondo esterno, ma si rifiuta di usarla per i suoi scopi ideologici. Aurora, con l'aiuto di Kaito e della Professoressa Hana, dovrà scoprire questo segreto e decidere come usarlo.
+*   **Alleanze Volatili**: L'introduzione di Ryu e della sua fazione aggiunge un ulteriore livello di complessità al sistema di reputazione. Aurora potrebbe trovarsi a dover bilanciare le relazioni tra le fazioni principali (Vex & Grim, Ember & Frost) e i ribelli di Ryu, ognuno con le proprie richieste e ideologie. Le sue scelte potrebbero portare a conflitti a tre vie o a inaspettate alleanze.
+*   **Il Torneo delle Squadre**: Ispirato ai combattimenti di Wind Breaker, potrebbe essere introdotto un torneo annuale o un evento di grande portata a Cromopoli, organizzato dalla Dama Celeste o da Vex & Grim, dove le diverse squadre si sfidano per il controllo di territori o risorse. Aurora potrebbe partecipare per guadagnare rispetto, svelare complotti o reclutare alleati.
+*   **Scelte Morali Complesse**: Le missioni non avranno sempre una soluzione chiara. Aurora dovrà affrontare dilemmi etici che riflettono la tensione tra il progresso scientifico a tutti i costi (Dama Celeste), la sopravvivenza della comunità (fazioni) e la responsabilità etica (Professoressa Hana). Le sue decisioni influenzeranno non solo la sua reputazione, ma anche il destino del mondo.
+
+Questi nuovi elementi mirano a fornire più profondità alla storia, maggiori opportunità di gameplay e scelte significative per il giocatore, rafforzando ulteriormente la fusione tra gli universi di Dr. Stone e Wind Breaker.
