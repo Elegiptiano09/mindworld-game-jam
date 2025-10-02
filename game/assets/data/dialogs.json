@@ -106,3 +106,105 @@
   }
 }
 
+
+,
+  "kaito": {
+    "rootNode": {
+      "character": "kaito",
+      "text": "Saluti, viaggiatrice! Sono Kaito, un ricercatore. Il mio laboratorio è il mondo intero, e la mia missione è riscoprire la scienza perduta. Hai per caso trovato qualche reperto interessante?",
+      "choices": [
+        {
+          "text": "Cosa intendi per scienza perduta?",
+          "nextNode": {
+            "character": "kaito",
+            "text": "Prima dell'esperimento della Dama Celeste, il mondo era pieno di meraviglie tecnologiche. Ora, dobbiamo ricostruire tutto, pezzo per pezzo, usando l'ingegno. Se trovi schemi o componenti antichi, portameli! Potremmo fare grandi scoperte insieme.",
+            "choices": [
+              {
+                "text": "Ho bisogno di trovare mio fratello Leo. Sai qualcosa di lui?",
+                "nextNode": {
+                  "character": "kaito",
+                  "text": "Leo? Ah, sì, il ragazzo con la cicatrice sull'occhio. L'ho visto dirigersi verso il Distretto Cremisi, la zona dei 'Ghost Wolves'. Sembrava molto determinato, ma anche un po'... ribelle. Fai attenzione, quella zona è sotto il controllo di Ryu.",
+                  "choices": [
+                    {
+                      "text": "Chi è Ryu?",
+                      "nextNode": {
+                        "character": "kaito",
+                        "text": "Ryu è il capo dei 'Ghost Wolves', una fazione che non si fida né della Dama Celeste né delle altre squadre. Sono forti, ma anche molto protettivi verso i loro. Se vuoi parlargli, dovrai dimostrare di non essere una minaccia.",
+                        "choices": [
+                          {
+                            "text": "Grazie per l'informazione, Kaito.",
+                            "nextNode": null
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "ryu": {
+    "rootNode": {
+      "character": "ryu",
+      "text": "Chi sei e cosa vuoi nel mio territorio? Non tollero spie della Dama Celeste o di altre squadre qui. Parla chiaro.",
+      "choices": [
+        {
+          "text": "Sono Aurora, cerco mio fratello Leo. Mi hanno detto che è qui.",
+          "nextNode": {
+            "character": "ryu",
+            "text": "Leo è con noi. Ha scelto di combattere per la libertà, non per le regole della Dama Celeste. Se vuoi vederlo, devi dimostrare di essere degna della nostra fiducia. Non siamo un gioco, qui si lotta per la sopravvivenza.",
+            "choices": [
+              {
+                "text": "Cosa devo fare per guadagnarmi la vostra fiducia?",
+                "nextNode": {
+                  "character": "ryu",
+                  "text": "La Dama Celeste sta cercando di espandere il suo controllo. Abbiamo bisogno di sabotare una delle sue nuove torri di comunicazione nel Distretto Azzurro. Se ci aiuti, potrai parlare con Leo. Ma se fallisci... non aspettarti pietà.",
+                  "choices": [
+                    {
+                      "text": "Accetto. Farò quello che serve.",
+                      "nextNode": null
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "professoressa_hana": {
+    "rootNode": {
+      "character": "professoressa_hana",
+      "text": "Benvenuta nel mio umile rifugio, Aurora. Sono la Professoressa Hana. Ho sentito parlare di te, e della tua ricerca della verità. La scienza è una forza potente, ma deve essere usata con saggezza. Non come ha fatto la Dama Celeste.",
+      "choices": [
+        {
+          "text": "Lei conosceva la Dama Celeste?",
+          "nextNode": {
+            "character": "professoressa_hana",
+            "text": "Eravamo colleghe, un tempo. Credevamo entrambe nel progresso, ma le nostre visioni si sono scontrate. Lei cercava il controllo, io la comprensione. L'esperimento che ha sollevato Altavista... è stato un errore tragico, di cui mi sento ancora responsabile.",
+            "choices": [
+              {
+                "text": "C'è un modo per rimediare? Per invertire la pietrificazione?",
+                "nextNode": {
+                  "character": "professoressa_hana",
+                  "text": "Forse. La Dama Celeste possiede ancora la chiave, una tecnologia che potrebbe invertire il processo. Ma non la userà per il bene comune. Dobbiamo trovare un modo per accedere a quella conoscenza, ma senza ripetere gli errori del passato. È una questione di etica, Aurora.",
+                  "choices": [
+                    {
+                      "text": "Sono pronta ad affrontare questa sfida.",
+                      "nextNode": null
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

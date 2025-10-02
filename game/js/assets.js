@@ -74,6 +74,11 @@ class AssetManager {
             'npc_ember': 'assets/images/ember_fah_revised.png',
             'npc_frost': 'assets/images/frost_brih_revised.png',
             'npc_celeste': 'assets/images/dama_celeste_revised.png',
+
+            // Nuovi personaggi
+            'kaito': 'assets/images/kaito.png',
+            'ryu': 'assets/images/ryu.png',
+            'professoressa_hana': 'assets/images/professoressa_hana.png',
             
             // Creature
             'fah_creature': 'assets/images/characters/fah_creature.jpg',

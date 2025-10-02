@@ -149,8 +149,9 @@ class World {
         this.npcs = [];
         
         // Crea gli NPC basati sui dati dei personaggi
-        for (const [id, data] of Object.entries(charactersData)) {
-            if (data.type === 'npc' && data.location === this.currentLevel) {
+        for (const id in charactersData.npcs) {
+            const data = charactersData.npcs[id];
+            if (data.location === this.currentLevel) {
                 const npc = new Character({
                     id: id,
                     x: data.x || 200,

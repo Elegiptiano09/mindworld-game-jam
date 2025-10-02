@@ -152,6 +152,54 @@
           "speed": 4
         },
         "dialogueId": "celeste"
+      },
+      {
+        "id": "kaito",
+        "name": "Kaito",
+        "description": "Un giovane e brillante ricercatore che viaggia tra le rovine del vecchio mondo e le zone selvagge di Cromopoli, cercando antiche tecnologie e formule scientifiche.",
+        "type": "npc",
+        "sprite": "kaito",
+        "stats": {
+          "health": 75,
+          "maxHealth": 75,
+          "speed": 5
+        },
+        "dialogueId": "kaito",
+        "location": "village",
+        "x": 100,
+        "y": 500
+      },
+      {
+        "id": "ryu",
+        "name": "Ryu",
+        "description": "Il carismatico e temuto leader di una fazione minore, i \"Ghost Wolves\", che opera nelle zone più desolate e pericolose di Cromopoli.",
+        "type": "npc",
+        "sprite": "ryu",
+        "stats": {
+          "health": 120,
+          "maxHealth": 120,
+          "speed": 6
+        },
+        "dialogueId": "ryu",
+        "location": "city",
+        "x": 1500,
+        "y": 800
+      },
+      {
+        "id": "professoressa_hana",
+        "name": "Professoressa Hana",
+        "description": "Una scienziata anziana e rispettata, ex mentore della Dama Celeste e del Maestro Elian, che rappresenta la coscienza etica della scienza.",
+        "type": "npc",
+        "sprite": "professoressa_hana",
+        "stats": {
+          "health": 60,
+          "maxHealth": 60,
+          "speed": 3
+        },
+        "dialogueId": "professoressa_hana",
+        "location": "village",
+        "x": 700,
+        "y": 300
       }
     ],
     "enemies": [

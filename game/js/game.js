@@ -19,6 +19,7 @@ class Game {
         this.animationSystem = new AnimationSystem();
         this.craftingSystem = new CraftingSystem();
         this.reputationSystem = new ReputationSystem();
+        this.questSystem = null; // Inizializzato dopo la creazione del mondo
         this.world = null;
         this.ui = new UI();
         
@@ -123,6 +124,10 @@ class Game {
                 
                 // Inizializza il mondo
                 this.world.init();
+                
+                // Inizializza il sistema di quest dopo la creazione del mondo
+                this.questSystem = new QuestSystem(this.world);
+                this.world.questSystem = this.questSystem;
                 
                 // Nascondi la schermata di caricamento
                 this.ui.hideLoadingScreen();
