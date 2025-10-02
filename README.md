@@ -57,6 +57,24 @@ Durante la sua avventura, Aurora dovrà scoprire:
 - **Abilità sbloccabili** con requisiti di livello
 - **Potenziamenti permanenti** attraverso oggetti speciali
 
+### Sistema di Dialoghi e Cutscene
+- **Dialoghi interattivi** con personaggi non giocanti
+- **Sistema di scelte multiple** che influenzano la storia
+- **Cutscene cinematiche** per momenti chiave della trama
+- **Animazioni e transizioni fluide** tra scene
+- **Sequenze narrative** con controllo della camera
+- **Effetti speciali** durante le cutscene
+- **Dialoghi con ritratti** dei personaggi
+
+### Sistema di Salvataggio e Caricamento
+- **Salvataggio manuale** in 3 slot diversi
+- **Salvataggio automatico** in punti chiave
+- **Caricamento rapido** da qualsiasi slot
+- **Esportazione e importazione** dei salvataggi
+- **Interfaccia utente dedicata** per la gestione dei salvataggi
+- **Anteprima dei salvataggi** con informazioni sul progresso
+- **Persistenza dei dati** tra sessioni di gioco
+
 ### Effetti Visivi Avanzati
 - **Sistema di particelle** per effetti di magia, ambiente e stato
 - **Effetti di post-processing** come bloom, aberrazione cromatica e vignettatura
@@ -141,10 +159,15 @@ mindworld-game-jam/
 │   │   ├── effects.js        # Sistema di effetti visivi avanzati
 │   │   ├── progression.js    # Sistema di progressione del personaggio
 │   │   ├── multiplayer.js    # Sistema multiplayer
+│   │   ├── dialogue.js       # Sistema di dialoghi
+│   │   ├── cutscene.js       # Sistema di cutscene
+│   │   ├── save_system.js    # Sistema di salvataggio
+│   │   ├── save_ui.js        # Interfaccia utente per il salvataggio
 │   │   └── ui.js             # Interfaccia utente migliorata
 │   ├── level_editor.html  # Editor di livelli
-│   ├── test.html         # File di test per le nuove funzionalità
-│   └── index.html        # File principale del gioco
+│   ├── test_all.html      # File di test per tutte le funzionalità
+│   ├── test.html          # File di test per le nuove funzionalità
+│   └── index.html         # File principale del gioco
 ├── src/
 │   ├── characters/   # Definizioni dei personaggi
 │   ├── world/        # Descrizioni del mondo di gioco
@@ -157,6 +180,7 @@ mindworld-game-jam/
 - **JavaScript** per la logica di gioco
 - **WebSockets** per il multiplayer
 - **JSON** per la gestione dei dati di gioco
+- **LocalStorage** per il sistema di salvataggio
 
 ## Come Giocare
 1. Clona il repository: `git clone https://github.com/Elegiptiano09/mindworld-game-jam.git`
@@ -165,12 +189,17 @@ mindworld-game-jam/
 4. Usa i tasti 1-4 per attacchi Fah, 5-8 per attacchi Brih
 5. Usa I per aprire l'inventario, Q per il registro delle missioni, M per la mappa
 6. Premi ESC per aprire il menu di pausa
+7. Usa F5 per aprire il menu di salvataggio/caricamento
 
 ## Test delle Nuove Funzionalità
-Per testare le nuove funzionalità (inventario, missioni, interfaccia utente migliorata):
-1. Apri il file `game/test.html` in un browser web
-2. Segui le istruzioni sullo schermo per interagire con i vari elementi
-3. Esplora le diverse schermate e funzionalità
+Per testare tutte le funzionalità implementate:
+1. Apri il file `game/test_all.html` in un browser web
+2. Usa i pulsanti nel pannello di test per provare:
+   - Sistema di dialoghi e cutscene
+   - Sistema di salvataggio e caricamento
+   - Sistema di combattimento
+   - Sistema di livelli
+   - Sistema di effetti visivi
 
 ## Editor di Livelli
 Per utilizzare l'editor di livelli:
@@ -186,6 +215,8 @@ Per utilizzare l'editor di livelli:
 - Miglioramento del sistema di crafting
 - Modalità storia completa
 - Supporto per dispositivi mobili
+- Sistema di achievement
+- Localizzazione in più lingue
 
 ## Licenza
 
