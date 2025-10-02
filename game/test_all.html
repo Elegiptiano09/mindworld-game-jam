@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindworld - Test Completo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+        }
+        
+        #game-container {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            margin: 20px auto;
+            border: 2px solid #444;
+            overflow: hidden;
+        }
+        
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        #ui-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        #ui-container button, #ui-container input, #ui-container select {
+            pointer-events: auto;
+        }
+        
+        #debug-panel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 100;
+        }
+        
+        #controls-panel {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 100;
+        }
+        
+        #test-panel {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 100;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 2px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        button:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+        }
+        
+        .test-section {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+        
+        .test-section h3 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="background-canvas" width="800" height="600"></canvas>
+        <canvas id="main-canvas" width="800" height="600"></canvas>
+        <canvas id="ui-canvas" width="800" height="600"></canvas>
+        <div id="ui-container"></div>
+        
+        <div id="debug-panel">
+            <div>FPS: <span id="fps">0</span></div>
+            <div>Posizione: <span id="position">0, 0</span></div>
+            <div>Stato: <span id="game-state">loading</span></div>
+        </div>
+        
+        <div id="controls-panel">
+            <div>Movimento: WASD o Frecce</div>
+            <div>Interazione: E</div>
+            <div>Attacchi Fah: 1-4</div>
+            <div>Attacchi Brih: 5-8</div>
+            <div>Pausa: ESC</div>
+        </div>
+        
+        <div id="test-panel">
+            <h2>Test Funzionalità</h2>
+            
+            <div class="test-section">
+                <h3>Sistema di Dialoghi</h3>
+                <button id="test-dialogue">Test Dialogo</button>
+                <button id="test-dialogue-choices">Test Scelte</button>
+            </div>
+            
+            <div class="test-section">
+                <h3>Sistema di Cutscene</h3>
+                <button id="test-cutscene-intro">Intro</button>
+                <button id="test-cutscene-meet-vex">Incontro con Vex</button>
+                <button id="test-cutscene-ending">Finale</button>
+            </div>
+            
+            <div class="test-section">
+                <h3>Sistema di Salvataggio</h3>
+                <button id="test-save">Salva (Slot 1)</button>
+                <button id="test-load">Carica (Slot 1)</button>
+                <button id="test-save-ui">Apri UI Salvataggio</button>
+            </div>
+            
+            <div class="test-section">
+                <h3>Sistema di Combattimento</h3>
+                <button id="test-combat">Inizia Combattimento</button>
+                <button id="test-fah-attack">Attacco Fah</button>
+                <button id="test-brih-attack">Attacco Brih</button>
+            </div>
+            
+            <div class="test-section">
+                <h3>Sistema di Livelli</h3>
+                <button id="test-load-village">Carica Villaggio</button>
+                <button id="test-load-city">Carica Città</button>
+                <button id="test-load-tower">Carica Torre</button>
+            </div>
+            
+            <div class="test-section">
+                <h3>Sistema di Effetti</h3>
+                <button id="test-effect-fire">Effetto Fuoco</button>
+                <button id="test-effect-ice">Effetto Ghiaccio</button>
+                <button id="test-effect-combo">Effetto Combinato</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Utility -->
+    <script src="js/utils.js"></script>
+    
+    <!-- Core -->
+    <script src="js/input.js"></script>
+    <script src="js/assets.js"></script>
+    
+    <!-- Gameplay -->
+    <script src="js/character.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/world.js"></script>
+    <script src="js/combat_system.js"></script>
+    <script src="js/level.js"></script>
+    <script src="js/effects.js"></script>
+    
+    <!-- UI -->
+    <script src="js/ui.js"></script>
+    <script src="js/dialogue.js"></script>
+    <script src="js/cutscene.js"></script>
+    
+    <!-- Save System -->
+    <script src="js/save_system.js"></script>
+    <script src="js/save_ui.js"></script>
+    
+    <!-- Progression -->
+    <script src="js/inventory.js"></script>
+    <script src="js/quest.js"></script>
+    <script src="js/progression.js"></script>
+    
+    <!-- Main -->
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Test Script -->
+    <script>
+        // Riferimenti agli elementi
+        const backgroundCanvas = document.getElementById('background-canvas');
+        const mainCanvas = document.getElementById('main-canvas');
+        const uiCanvas = document.getElementById('ui-canvas');
+        const uiContainer = document.getElementById('ui-container');
+        const fpsCounter = document.getElementById('fps');
+        const positionDisplay = document.getElementById('position');
+        const gameStateDisplay = document.getElementById('game-state');
+        
+        // Contesto di rendering
+        const bgCtx = backgroundCanvas.getContext('2d');
+        const ctx = mainCanvas.getContext('2d');
+        const uiCtx = uiCanvas.getContext('2d');
+        
+        // Variabili di gioco
+        let game = null;
+        let world = null;
+        let player = null;
+        let ui = null;
+        let dialogueSystem = null;
+        let cutsceneSystem = null;
+        let saveSystem = null;
+        let saveUI = null;
+        
+        // Statistiche
+        let lastTime = 0;
+        let frameCount = 0;
+        let fps = 0;
+        let fpsUpdateInterval = 500; // ms
+        let lastFpsUpdate = 0;
+        
+        // Inizializzazione
+        function init() {
+            // Crea il mondo
+            world = new World({
+                width: 800,
+                height: 600,
+                bgCtx: bgCtx,
+                ctx: ctx
+            });
+            
+            // Crea il giocatore
+            player = new Character({
+                name: "Aurora",
+                x: 400,
+                y: 300,
+                width: 32,
+                height: 48,
+                speed: 3,
+                type: "player",
+                health: 100,
+                maxHealth: 100,
+                fahEnergy: 100,
+                brihEnergy: 100,
+                maxFahEnergy: 100,
+                maxBrihEnergy: 100
+            });
+            
+            // Aggiungi il giocatore al mondo
+            world.player = player;
+            
+            // Crea l'interfaccia utente
+            ui = new UI({
+                ctx: uiCtx,
+                container: uiContainer,
+                world: world
+            });
+            
+            // Crea il sistema di dialoghi
+            dialogueSystem = new DialogueSystem({
+                ui: ui,
+                world: world
+            });
+            
+            // Crea il sistema di cutscene
+            cutsceneSystem = new CutsceneSystem({
+                ui: ui,
+                world: world,
+                dialogueSystem: dialogueSystem
+            });
+            
+            // Crea il sistema di salvataggio
+            saveSystem = new SaveSystem({
+                world: world,
+                gameId: "mindworld"
+            });
+            
+            // Crea l'interfaccia utente per il salvataggio
+            saveUI = new SaveUI({
+                saveSystem: saveSystem,
+                ui: ui
+            });
+            
+            // Inizializza l'interfaccia utente per il salvataggio
+            saveUI.init();
+            
+            // Crea il gioco
+            game = new Game({
+                world: world,
+                ui: ui,
+                dialogueSystem: dialogueSystem,
+                cutsceneSystem: cutsceneSystem,
+                saveSystem: saveSystem,
+                saveUI: saveUI
+            });
+            
+            // Inizializza il gioco
+            game.init();
+            
+            // Aggiungi gli event listener per i test
+            setupTestButtons();
+            
+            // Avvia il loop di gioco
+            requestAnimationFrame(gameLoop);
+        }
+        
+        // Loop di gioco
+        function gameLoop(timestamp) {
+            // Calcola il delta time
+            const deltaTime = (timestamp - lastTime) / 1000;
+            lastTime = timestamp;
+            
+            // Aggiorna il contatore FPS
+            frameCount++;
+            if (timestamp - lastFpsUpdate > fpsUpdateInterval) {
+                fps = Math.round(frameCount / ((timestamp - lastFpsUpdate) / 1000));
+                fpsCounter.textContent = fps;
+                frameCount = 0;
+                lastFpsUpdate = timestamp;
+            }
+            
+            // Aggiorna il gioco
+            if (game) {
+                game.update(deltaTime);
+            }
+            
+            // Aggiorna le informazioni di debug
+            updateDebugInfo();
+            
+            // Richiedi il prossimo frame
+            requestAnimationFrame(gameLoop);
+        }
+        
+        // Aggiorna le informazioni di debug
+        function updateDebugInfo() {
+            if (player) {
+                positionDisplay.textContent = `${Math.round(player.x)}, ${Math.round(player.y)}`;
+            }
+            
+            if (world) {
+                gameStateDisplay.textContent = world.gameState;
+            }
+        }
+        
+        // Configura i pulsanti di test
+        function setupTestButtons() {
+            // Test del sistema di dialoghi
+            document.getElementById('test-dialogue').addEventListener('click', () => {
+                if (dialogueSystem) {
+                    dialogueSystem.startDialogue({
+                        speaker: "Maestro Elian",
+                        text: "Benvenuta, Aurora. È giunto il momento di iniziare il tuo viaggio per salvare tuo fratello Leo."
+                    });
+                }
+            });
+            
+            document.getElementById('test-dialogue-choices').addEventListener('click', () => {
+                if (dialogueSystem) {
+                    dialogueSystem.startDialogue({
+                        speaker: "Maestro Elian",
+                        text: "Quale potere vuoi imparare per primo?",
+                        choices: [
+                            "Potere Fah (Fuoco)",
+                            "Potere Brih (Ghiaccio)",
+                            "Entrambi contemporaneamente"
+                        ]
+                    }, (choice, index) => {
+                        console.log(`Scelta selezionata: ${choice} (${index})`);
+                    });
+                }
+            });
+            
+            // Test del sistema di cutscene
+            document.getElementById('test-cutscene-intro').addEventListener('click', () => {
+                if (cutsceneSystem) {
+                    cutsceneSystem.startCutscene("intro");
+                }
+            });
+            
+            document.getElementById('test-cutscene-meet-vex').addEventListener('click', () => {
+                if (cutsceneSystem) {
+                    cutsceneSystem.startCutscene("meet_vex");
+                }
+            });
+            
+            document.getElementById('test-cutscene-ending').addEventListener('click', () => {
+                if (cutsceneSystem) {
+                    cutsceneSystem.startCutscene("ending");
+                }
+            });
+            
+            // Test del sistema di salvataggio
+            document.getElementById('test-save').addEventListener('click', () => {
+                if (saveSystem) {
+                    saveSystem.saveGame(1);
+                    alert("Gioco salvato nello slot 1");
+                }
+            });
+            
+            document.getElementById('test-load').addEventListener('click', () => {
+                if (saveSystem) {
+                    saveSystem.loadGame(1);
+                    alert("Gioco caricato dallo slot 1");
+                }
+            });
+            
+            document.getElementById('test-save-ui').addEventListener('click', () => {
+                if (saveUI) {
+                    saveUI.show();
+                }
+            });
+            
+            // Test del sistema di combattimento
+            document.getElementById('test-combat').addEventListener('click', () => {
+                if (world) {
+                    // Crea un nemico
+                    const enemy = new Character({
+                        name: "Nemico",
+                        x: 500,
+                        y: 300,
+                        width: 32,
+                        height: 48,
+                        speed: 2,
+                        type: "enemy",
+                        health: 50,
+                        maxHealth: 50
+                    });
+                    
+                    // Aggiungi il nemico al mondo
+                    world.enemies.push(enemy);
+                    
+                    // Imposta lo stato di combattimento
+                    world.gameState = "combat";
+                }
+            });
+            
+            document.getElementById('test-fah-attack').addEventListener('click', () => {
+                if (world && world.player) {
+                    // Crea un attacco Fah
+                    world.createAttack({
+                        type: "fah",
+                        name: "Palla di Fuoco",
+                        x: world.player.x,
+                        y: world.player.y,
+                        targetX: world.player.x + 100,
+                        targetY: world.player.y,
+                        damage: 20,
+                        speed: 5,
+                        radius: 20
+                    });
+                }
+            });
+            
+            document.getElementById('test-brih-attack').addEventListener('click', () => {
+                if (world && world.player) {
+                    // Crea un attacco Brih
+                    world.createAttack({
+                        type: "brih",
+                        name: "Spuntone di Ghiaccio",
+                        x: world.player.x,
+                        y: world.player.y,
+                        targetX: world.player.x + 100,
+                        targetY: world.player.y,
+                        damage: 15,
+                        speed: 7,
+                        radius: 15
+                    });
+                }
+            });
+            
+            // Test del sistema di livelli
+            document.getElementById('test-load-village').addEventListener('click', () => {
+                if (world) {
+                    world.loadLevel("village");
+                }
+            });
+            
+            document.getElementById('test-load-city').addEventListener('click', () => {
+                if (world) {
+                    world.loadLevel("city");
+                }
+            });
+            
+            document.getElementById('test-load-tower').addEventListener('click', () => {
+                if (world) {
+                    world.loadLevel("tower");
+                }
+            });
+            
+            // Test del sistema di effetti
+            document.getElementById('test-effect-fire').addEventListener('click', () => {
+                if (world) {
+                    world.createEffect("fire", 400, 300);
+                }
+            });
+            
+            document.getElementById('test-effect-ice').addEventListener('click', () => {
+                if (world) {
+                    world.createEffect("ice", 400, 300);
+                }
+            });
+            
+            document.getElementById('test-effect-combo').addEventListener('click', () => {
+                if (world) {
+                    world.createEffect("combo", 400, 300);
+                }
+            });
+        }
+        
+        // Avvia l'inizializzazione quando il documento è pronto
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
